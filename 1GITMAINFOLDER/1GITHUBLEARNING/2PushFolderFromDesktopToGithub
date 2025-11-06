@@ -1,0 +1,55 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+FOR NEW**********************From Desktop to Git Hub when both folder are completely new
+**************************************------------------------------------------<br></P><p><p></p>
+Create a folder without read me in git Hub
+>>then come to visual studio code and stay in folder you want to push like i stayed in GITHUB1 folder and I also created GITHUB1 Folder online
+
+>>now paste together these 3 lines 
+
+echo "# 1GITHUB" >> README.md
+git init
+git add README.md
+
+>> Paste together these four lines git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/0427bajaj/1GITHUB.git
+git push -u origin main
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+when already origin exist fatal: repository 'https://github.com/0427bajaj/1GITMAINFOLDER.git/' not found( its old rigin)
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+s>>  first remove origin
+to check origin==== git hub git remote -v
+to remove origin==== git remote remove origin
+>>if it does not delete and you see error like this 
+Deletion of directory '.git/logs/refs/remotes/origin' failed. Should I try again? (y/n) y
+>> Then Go to your local repository and remove the existing origin remote.
+git/logs/refs/remotes/origin
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FOR EXISTING ONE **********************
+**************************************------------------------------------------<br></P><p><p></p>
+s>>  first remove origin
+git hub git remote -v
+git remote remove origin
+>>if it does not delete and you see error like this 
+Deletion of directory '.git/logs/refs/remotes/origin' failed. Should I try again? (y/n) 
+DO YES
+OR GO TO LOCAL FOLDER AND delete Origin file under ref folder:
+git/logs/refs/remotes/origin
+---------- Now 
+>>now paste together these 3 lines 
+
+echo "# 1GITHUB" >> README.md
+git init
+git add README.md
+
+>> Paste together these four lines git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/0427bajaj/1GITHUB.git
+git push -u origin main
