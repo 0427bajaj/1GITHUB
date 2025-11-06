@@ -1,0 +1,134 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+OVERRIDING & PARENT & CHILD CLASS( INHERITANCE)- need extends - to get son is sub class, father is super calss, son getting property of father
+if method signature will be same, implimentation will go from father to son, and son will overide the implimenation, 
+so subclass will override the content of super class
+
+Super calss content get loaded first then overridden by sub class
+
+Inheritance- both class will have same method differ in implimentation
+**************************************------------------------------------------<br></P><p><p></p>
+
+FATHER--------------
+public void job () {
+System. out.println ("Government Job") ;
+
+public class Father {
+
+
+public static void main (String[] args) {
+Father f = new Father () ;
+
+f.job();
+
+SON-----------------
+public class Son extends Father{
+
+public void job () {
+System. out.println ("Private Job");
+
+public static void main (String[] args) {
+
+Son s = new Son() ;
+s.job();
+
+}
+
+**************************************------------------------------------------<br></P><p><p></p>
+METHOD OVERRIDING-------------implimentation will print private job( from Son class- new implimentation)
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+ABSTRACT CLASS (RTest) two method  method incompleteEG:  100% abstraction
+
+package Abstraction;
+
+public abstract class RTest 
+{
+
+abstract void p1 ();
+
+abstract void p2();
+ }
+
+ **************************************------------------------------------------<br></P><p><p></p>
+ COMPANION CLASS
+ **************************************------------------------------------------<br></P><p><p></p>
+ 
+ public class RDemo extends RTest {
+
+public static void main (String[] args) {
+
+RDemo r = new RDemo () ;
+
+r.pl();
+r.p2();
+
+}
+
+void pl () {
+System. out.println("Ryunning in pl()");
+
+I
+
+}
+
+void p2 () {
+System.out.println("Ryunning in p2()");
+
+}
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+ABSTRACT CLASS (RTest) two method incomplete: EG:50% abstraction
+**************************************------------------------------------------<br></P><p><p></p>
+ public abstract class RTest {
+
+abstract void pl () ;
+
+abstract void p2();
+
+public static void m1 () {
+System. out.println ("Running in static ml () ");
+
+}
+
+public void m2 () {
+System. out.println ("Running in non-static m2() ");
+
+}
+
+**************************************------------------------------------------<br></P><p><p></p>
+EG: IMPLIMENTS
+**************************************------------------------------------------<br></P><p><p></p>
+public interface Niviya {
+
+void al() ;
+
+abstract void a2();
+
+public abstract void a3();
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+CAMPANION?IMPLIMENTATION CLASS FOR INTERFACE
+**************************************------------------------------------------<br></P><p><p></p>
+
+public class Bhuvana implements Niviya {
+
+public static void main (String[] args) {
+
+Bhuvana ref = new Bhuvana () ;
+ref.al();
+ref.a2();
+ref.a3();
+
+public void al () {
+System. out.println ("Running in all) ");
+
+public void a2() {
+System. out.println ("Running in a2()");
+
+public void a3() {
+System. out.println ("Running in a3()");
+**************************************------------------------------------------<br></P><p><p></p>

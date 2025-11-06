@@ -1,0 +1,68 @@
+CORNJOBS: will at 
+that time automatically run- with shell script, we can create job in linux, and execute at given point of time with cron job
+*****------------------------------------------<br></P><p><p></p>
+PREQUITE:
+AWS CLI need to installed
+Linus use bash
+>> aws configure
+access key id
+access 
+<keygen>
+regin name
+script format {jason}
+*****------------------------------------------<br></P><p><p></p>
+#!/bin/sh   
+###########Autor: abhishek
+Date: 11th-jan
+this script will report the 
+
+# list s3 buckets
+echo "Print list of s3 buckets"
+aws s3 ls
+
+# list EC2 Instances
+echo "Print list of ec2 buckets"
+aws ec2 describe-instances
+
+# list lambda
+echo "Print list of lambda functions"
+aws lambda list-functions
+
+# list IAM users
+echo "Print list of IAM User
+aws iam list-users
+*****------------------------------------------<br></P><p><p></p>
+ubuntu@ip-172-31-53-60 :~ $ ./aws_resource_tracker.sh | more
++ echo 'Print list of s3 buckets'
++ aws s3 ls
+Print list of s3 buckets
+2023-01-10 16:31:35 penguinflewaway
++ echo 'Print list of ec2 buckets'
++ aws ec2 describe-instances
+Print list of ec2 buckets
+*****------------------------------------------<br></P><p><p></p>
+Run through file- here file name is resource aws_resource_tracker
+
+echo "Print list of s3 buckets"
+aws s3 ls > resourceTracker
+
+# list EC2 Instances
+echo "Print list of ec2 buckets"
+aws ec2 describe-instances | jq '.Reservations[]. Instances[]. InstanceId'
+
+# list lambda
+echo "Print list of lambda functions"
+aws lambda list-functions >> resourceTracker:q!
+*****------------------------------------------<br></P><p><p></p>
+Here in command line run first query to run File
+ubuntu@ip-172-31-53-60 :~ $ ./aws_resource_tracker.sh
++ echo 'Print list of s3 buckets'
+Print list of s3 buckets
++ aws s3 ls
+2023-01-10 16:31:35 penguinflewaway
++ echo 'Print list of ec2 buckets'
+Print list of ec2 buckets
++ jq '.Reservations[]. Instances
++ aws ec2 describe-instances
+
+].InstanceId'
