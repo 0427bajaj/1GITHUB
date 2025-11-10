@@ -29,6 +29,145 @@ int y = (int) dd;
 System. out.println("Y = " + y) ;
 
 **************************************------------------------------------------<br></P><p><p></p>
-DERIVED TYPE CASTING - EXPLICIT(with force) & IMPLICIT ( without froce)
+DERIVED TYPE CASTING - EXPLICIT(with force) & IMPLICIT 
+( without froce)handlock situation get created where all sub class content will not be visbile
+
 **************************************------------------------------------------<br></P><p><p></p>
+UPCASTING: object of sub class and have all subclass and super class content
+SubClass obj = new SubClass () ;
+obj.cl (); I
+obj.c2();
+obj.c3();
+obj.c4();
+DOWNCASTING: its super class object --- have only super class content not subclass object 
+SubClass obj = new SubClass () ;
+obj.cl (); I
+obj.c2();
+
+**************************************
+SUPER CLASS
+**************************************
+package TypeCasting;
+
+public class SuperCiass
+
+public void c1() {
+System. out.println ("Running in cl() of SuperClass");
+
+public void c2() {
+System. out.println("Running in c2() of SuperClass");
+
+public static void main (String [] args) {
+
+SuperClass ref = new SuperClass () ;
+ref.cl();
+ref.c2();
+
+}}}
+**************************************
+SUB CLASS- it has all super and sub class object
+**************************************
+public class SubClass extends SuperClass{
+
+public void c3() {
+System. out.println ("Running in c3() of SubClass");
+
+public void c4() {
+System. out.println ("Running in c4() of SubClass");
+
+}
+
+public static void main (String[] args) {
+
+//Sub Class object
+SubClass obj = new SubClass () ;
+obj.cl ();
+obj.c2();
+obj.c3();
+obj.c4();
+
+//conversion of sub class super class object (UPCASTING)
+SuperClass obj2 = [SuperClass) obj;
+System. out.println (":
+obj2.cl();
+obj2.c2();
+
+=== UPCASTING=SUPER CLASS IS DECLARE TYPE========= ");
+SubClass ref = (SubClass) obj2;
+System. out.println ("== DOWN CASTING======== ") ;
+
+ref.cl();
+ref.c2();
+ref.c3();
+ref.c4();
+
+
+}
+
+}
+
+**************************************------------------------------------------<br></P><p><p></p>
+PLOYMORPHISM-when object shows different behavior 
+>> Upcasting with overwriting ---- one object shows different behaivior/excecution time/late binding, dynamic/
+ run time as object get created during executuion or run time
+<br>
+>>>method overloading when method can exist multiple time, with arguments
+
+**************************************------------------------------------------<br></P><p><p></p>
+Super class
+**************************************------------------------------------------<br></P><p><p></p>
+package TypeCasting;
+
+public class A {
+public void cl() {
+System. out.println ("Running in cl() of A");
+
+ebruary25thCorelava/src/lypeCasting/Bjava
+
+public void c2() {
+System. out.println ("Running in c2() of A");
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+Subclass
+**************************************------------------------------------------<br></P><p><p></p>
+package TypeCasting;
+
+public class B extends A{
+public void cl () {
+System. out.println ("Running in cl() of B");
+
+public void c4() {
+System. out.println ("Running in c4() of B");
+
+public static void main (String[] args) {
+
+//Sub class object
+B b = new B() ;
+//b.cl ();
+
+//sub class to super class object
+//Up casting
+A a= (A) b;
+
+a.cl(); // here upcasting is their but also method overloading is there and will show the 
+subclass content rather than superclass even though same method exist in super class and sub class will over required
+a.c2();
+
+}
+
+**************************************------------------------------------------<br></P><p><p></p>
+SELENIUM 
+**************************************------------------------------------------<br></P><p><p></p>
+>>Search context(interface) that have two method - find elements(); findElelmet();
+method implimentation is not there
+>> WebDriver(interface) extends is used between interface and interface  with class will be extends
+it will extend property of search context
+get(string url), close();, refresh(); 
+>> Remotewebdriver(class)- fully implimented class
+it will implimmetns and impliment word will be used to impliment all the method of webdriver abd search context
+>> Browser classes, chrome driver, firefox, safari, edge
+
+
 
