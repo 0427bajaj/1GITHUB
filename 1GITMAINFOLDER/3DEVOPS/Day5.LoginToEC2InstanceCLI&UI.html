@@ -1,0 +1,51 @@
+>>THROUGH AWS UI
+- restriction is it not connect for long time
+dashboard>instance runnung>click on instance id>click on connect> connect
+touch abhishek( file create)
+ls to list-functionsclear to clear
+
+>> We need terminal to connect for long , Iterm 2, Putty, Mobaxterm, nomachine
+
+>> we need public Ip addess by ging to instance under Ec2
+
+>>THROUGH COMMAND LINE
+>> SSh ubuntu @ ip <address that you copeied
+it will ask for key value pair 
+ssh-i / (location for key value pair file location) ubuntu @ (ip address)
+if its says bad permission give permission by typing
+chmod 600 ( pem file/key value pair file location)
+then again write
+ssh-i / (location for key value pair file location) ubuntu @ (ip address) 
+now you will successfully login to the EC@ instance through CLI
+
+>> DELETING THE INSTANCE THROUGH UI
+
+go to instance> click on instance state>> stop instance> terminate the instance> stop instance( if not gonna to use anymore)
+
+
+>> AWS CLI( command line interface)
+
+Download aws CLI, download 64bit>> next > next  and install
+
+---to verify if it is install or not run command line- aws version
+it will show if install
+--- to check user and info go to user> sercurity credential> access key> create access key>> sace copy of this access key and keep info software
+
+----in command like type- aws configure
+t will ask key and secret key paste that, then it will ask region keep default, no need to type
+it will show this by default{us-east-1}
+--- you are connected now
+
+>>aws s3 ls
+it will ask access key
+we can create bucket or delete do anthing
+
+>> we can use command line interface use aws documentation
+type of instance keyvalue pair, groupid subnetid subnet we can do hten we can create 
+
+
+>> CLOUD FORMATION TEMPLATES, aws ;an, ec2 instance> copy > 
+go to cloud formation> ucreate stack> use samplte templare> you can use template
+
+>> API- SHELL SCRIPTING
+
