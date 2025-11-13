@@ -1,0 +1,311 @@
+**************************************------------------------------------------<br></P><p><p></p>
+WEB ELEMENT API: 
+FIND ELEMENT 
+SENDKEYS 
+CLICK
+THREAD.SLEEEP
+GET TEXT 
+**************************************------------------------------------------<br></P><p><p></p>
+WEB ELEMENT API
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+**************************************------------------------------------------<br></P><p><p></p>
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO FINDING ELEMENT ON WEBPAGE
+>> More tool> dev tool(cntrl_shift+I)> go on any page items/element/
+right click & click Inspect ypu will be able to see code
+if you click on small aero next to element and if now you go to any element it will automaticaly take you to the code
+
+**************************************------------------------------------------<br></P><p><p></p>
+FUNCTIONS----------------------
+FIND ELEMENT=  LOCATE & EXTRACT WEB ELLEMENT
+
+**************************************------------------------------------------<br></P><p><p></p>
+FUNCTIONS----------------------
+FIND ELEMENT=  LOCATE & EXTRACT WEB ELLEMENT
+(method which capture web element with help of locator in BY class)
+to extract- we locate with by class( 8 locators- id, class, link text, partial link text, xpath)
+then we extract 
+Driver.find element (By.id ("value of locator"));
+WebElement email = driver.findElement (By.id("email"));
+by class have all the locators
+*******FIND ELEMENT RETURN TYPE IS WEBELEMENT
+(CONTROL+SHIFT +I) to open dev tool, click on aero next to the welement then hover over the element to see the code
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+SEND KEYS USE TO ADD THE TEXT ETC  TO ELEMENT like email value, password
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+CLICK OPERATION IS USED TO PERFORM CLICK ON ELEMENT
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+THREAD.SLEEEP
+Throws Exception will add to main method
+public static void main (String[] args) throws Exception {
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) throws Exception {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+GET TEXT 
+to get the text from any webelement like we put wrong password and then error message come,
+ click on error message to locate first
+String errormessage = errror.getText ();
+System. out.println ("Error Message = "+errormessage) ;
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) throws Exception {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+Thread.sleep(3000);
+
+WebElement errror = driver. findElement (By. className("_9ay7") );
+
+String errormessage = errror.getText ();
+
+System. out.println ("Error Message = "+errormessage) ;
+
+//navigate back
+driver.navigate().back();
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+IS DISPLAYED
+IS ENABLED
+IS SELECTED
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) throws Exception {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+Thread.sleep(3000);
+
+WebElement errror = driver. findElement (By. className("_9ay7") );
+
+String errormessage = errror.getText ();
+
+System. out.println ("Error Message = "+errormessage) ;
+
+//navigate back
+driver.navigate().back();
+
+
+// capture logo webElement
+WebElement logo = driver. findElement (By. xpath("//img[@alt='Facebook']"));
+
+// check if logo is displayed on the screen
+boolean statusOfLogo = logo.isDisplayed () ;
+System. out.println ("is Logo present = " + statusOfLogo);
+
+}

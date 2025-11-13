@@ -1,0 +1,32 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+SETTING SYSTEM PROPERTY WILL SET CHROME PATH PERMAMNETLY_
+- it will help to set chrome driver path automatic, you can run any project without fixing driver path
+**************************************------------------------------------------<br></P><p><p></p>
+System. setProperty("webdriver.chrome.driver",
+System. getProperty("user.dir") + "Driver\chromedriver.exe");
+// here is how you set sytem path from chrome driver 
+
+WebDriver driver = new ChromeDriver();
+**************************************------------------------------------------<br></P><p><p></p>
+package WebElementAPI;
+
+import org. openqa. selenium. WebDriver;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+
+public static void main (String[] args) {
+
+System. setProperty("webdriver.chrome.driver",
+System. getProperty("user.dir") + "Driver\chromedriver.exe");
+// here is how you set sytem path from chrome driver 
+
+WebDriver driver = new ChromeDriver();
+
+driver.get ("https://facebook.com");
+}
+}
+
+**************************************------------------------------------------<br></P><p><p></p>

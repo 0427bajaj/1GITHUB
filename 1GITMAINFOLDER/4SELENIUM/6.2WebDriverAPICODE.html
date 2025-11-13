@@ -1,0 +1,76 @@
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+WEB DRIVER API
+import org. openqa. selenium. WebDriver;
+import org. openqa.selenium. chrome. ChromeDriver;
+**************************************------------------------------------------<br></P><p><p></p>
+WebDriverAPI;
+SET DRIVER PATH:System. setProperty("webdriver.chrome.driver",
+System. getProperty("user.dir") + "Driver\chromedriver.exe");
+INVOKE DRIVER- WebDriver driver = new ChromeDriver () ;
+OPEN WEBPAGE- driver.get ("https://facebook.com");
+MAXIMIZE WINDOW- driver.manage() .window().maximize();//method chaining
+NAVIGATE TO- driver.navigate () .to ("https://www.amazon.in");
+NAVIGATE FORWARD -driver.navigate() .forward ();
+NAVIGATE BACKWARD- driver.navigate().back();
+GET TITLE OF THE PAGE- String currenturl = driver.getCurrentUrl();
+DELETE ALL COOKIES- driver.manage () .deleteAllCookies();
+REFRESH BROWSER-driver.navigate() .refresh();
+QUIT BROWSERS- driver.quit ();
+CLOSE BROWSERS- driver.close();
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS
+**************************************------------------------------------------<br></P><p><p></p>
+WebDriverAPI;
+    
+package WebDriverAPI;
+import org. openqa. selenium. WebDriver;
+import org. openqa.selenium. chrome. ChromeDriver;
+public class WebDriverAPI {  
+public static void main (String[] args) {
+
+ System. setProperty("webdriver. chrome.driver",
+"D: \\Eclipse Workspace\ \February25thAutomation\ \Driver\ \chromedriver.exe");
+//(this is copied from driver folder the path under property)   
+WebDriver
+
+WebDriver driver = new ChromeDriver () ;
+// launch the browser
+driver.get ("https://facebook.com");
+System. out.println ("Facebook page has been launched") ;
+
+//maximize the browser
+driver.manage() .window().maximize();//method chaining
+System. out.println ("Window is miximized");
+
+// navigate to amazon.in
+driver.navigate () .to ("https://www.amazon.in");
+
+// navigate backward to facebook screen
+driver.navigate().back();
+String currenturl = driver.getCurrentUrl();
+System. out.println ("Current Url = " + currenturl) ;
+System. out.println ("Navigate back to Facobook page");
+
+// navigate forward to Amazon screen
+driver.navigate() .forward ();
+String title = driver.getTitle();
+System. out.println ("Title = " + title) ;
+System. out.println ("Navigate forward to amazon page") ; 
+
+// how to delete all cookies during run time
+driver.manage () .deleteAllCookies();
+
+//how to refresh the browser
+driver.navigate() .refresh();
+System. out.println ("Browser has been refreshed") ;
+
+//close all the tabs of browser
+driver.quit ();
+driver.close();
+
+}
+
+}
