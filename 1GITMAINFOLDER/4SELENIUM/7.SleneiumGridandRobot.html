@@ -1,0 +1,126 @@
+**************************************------------------------------------------<br></P><p><p></p>
+FIND ELEMENT & LOCATORS
+**************************************------------------------------------------<br></P><p><p></p>
+WebElement password = driver.findElement (By.id("pass"));
+WebElement password = driver.findElement (By.Locator);
+
+By is an abstract class
+Have 8 locators method we use to locate webelement, we use in same preference order 
+>> Id (); 
+--WebElement password = driver.findElement (By.id("pass"));
+
+>>Name (); 
+name= email
+--WebElement password = driver.findElement (By.name("email"));
+
+
+>>Link text  ();
+Partial Link Text ();
+ LINK TEXT & PARTIAL LINK TEXT:  BY TAG/HTML <a herf=" " ANCHOR TAG  
+BUY NOW is visbile text here- it will  outside the stat tag and end tag <> </>   
+--WebElement TAB = driver.findElement (By.Linktext("HOME & KITCHEN"));
+TAB.click();
+
+
+we are using hald of the VISIBLE TEXT 
+--WebElement TAB = driver.findElement (By.partialLinktext("HOME));
+TAB.click();
+
+
+
+>> Class Name ();
+class = " module- title"
+ --WebElement TAB = driver.findElement (By.className("module- title"));
+TAB.click();
+
+
+>> WITH TAG Name
+//a
+//H2
+//tag name
+//div
+
+-WebElement TAB = driver.findElement (By.tagName("h2")); 
+(if one is there we will be good, otherwise we need to change)
+
+
+>> Xpath (); 
+--WebElement logo = driver. findElement (By. xpath("//img[@alt='Facebook']"));
+CSS Selector ();
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+DEV TOOL> CONTOL+SHIFT+I= aero next to lement
+**************************************------------------------------------------<br></P><p><p></p>
+Attribute= KEY + Value pair
+class="abc" ( class is key and abc is value)
+type="text"
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+BY ID
+**************************************------------------------------------------<br></P><p><p></p>
+Id (); 
+id="email"
+--WebElement password = driver.findElement (By.id("pass"));
+email.clear();
+email.sendKeys ("rakeshsinghraks");
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+BY NAME
+**************************************------------------------------------------<br></P><p><p></p>
+Name (); 
+name= "email"
+--WebElement password = driver.findElement (By.name("email"));
+email.clear();
+email.sendKeys ("rakeshsinghraks");
+
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+LINK TEXT & PARTIAL LINK TEXT:  BY TAG/HTML <a herf=" " ANCHOR TAG  
+**************************************------------------------------------------<br></P><p><p></p>
+BY TAG/HTML <button type ="submit"> BUY NOW </button> 
+
+BUY NOW is visbile text here- it will  outside the stat tag and end tag <> </>   
+--WebElement TAB = driver.findElement (By.Linktext("HOME & KITCHEN"));
+TAB.click();
+
+
+we are using hald of the visisble text 
+--WebElement TAB = driver.findElement (By.partialLinktext("HOME));
+TAB.click();
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CLASS NAME
+**************************************------------------------------------------<br></P><p><p></p>
+class = " module- title"
+ 
+--WebElement TAB = driver.findElement (By.className("module- title"));
+TAB.click();
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TAG NAME
+How Many tags or anchor list or H2 there
+> do "contol f" on code on the dev tool page with elements
+> a is for anchor tag or links
+> then add two slash before to find all
+**************************************------------------------------------------<br></P><p><p></p>
+TO FIND TOTAL NUMBER OF LINK OR TAG 
+//a
+//H2
+//tag name
+//div
+
+-WebElement TAB = driver.findElement (By.tagName("h2")); 
+(if one is there we will be good, otherwise we need to change)
+**************************************------------------------------------------<br></P><p><p></p>
