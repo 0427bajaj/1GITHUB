@@ -1,25 +1,94 @@
 **************************************------------------------------------------<br></P><p><p></p>
-WEB ELEMENT API: 
-FIND ELEMENT 
-SENDKEYS 
-CLICK
-THREAD.SLEEEP
-GET TEXT 
+WEB ELEMENT API: control web element
+O FINDING ELEMENT ON WEBPAGE
+>> More tool> dev tool(cntrl_shift+I)> go on any page items/element/
+right click & click Inspect ypu will be able to see code
+if you click on small aero next to element and if now you go to any element it will automaticaly take you to the code
+**************************************------------------------------------------<br></P><p><p></p>
+WEB ELEMENT API:
+
+FIND ELEMENT-
+CLEAR
+SENDKEYS- 
+CLICK:
+THREAD.SLEEEP:
+GET TEXT- 
+IS DISPLAYED 
+IS SELECTED
+CREATE ACCOUNT CLICK OPERATION
+GET CSS VALUE/ FONT FAMILY- 
+BACKGROUND COLOR: 
+GET ATTRIBUTE-(key & value pair)
 **************************************------------------------------------------<br></P><p><p></p>
 WEB ELEMENT API
 import org. openqa. selenium. By;
 import org.openqa.selenium.WebDriver;
 import org. openqa. selenium. WebElement;
 import org. openqa. selenium. chrome. ChromeDriver;
-**************************************------------------------------------------<br></P><p><p></p>
+
 
 **************************************------------------------------------------<br></P><p><p></p>
-TO FINDING ELEMENT ON WEBPAGE
->> More tool> dev tool(cntrl_shift+I)> go on any page items/element/
-right click & click Inspect ypu will be able to see code
-if you click on small aero next to element and if now you go to any element it will automaticaly take you to the code
+
+ALL FUNCTIONS :
 
 **************************************------------------------------------------<br></P><p><p></p>
+
+
+WEB ELEMENT API: 
+FIND ELEMENT- to locate any element with the help of by class that have locators we can see web elements 
+WebElement email = driver.findElement (By.id("email"));
+
+SENDKEYS- use to add the text
+email.sendKeys ("rakeshsinghraks");
+
+CLEAR : before adding any text always clear first
+WebElement email = driver.findElement (By.id("email"));
+email.clear();
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+CLICK:- driver. findElement (By.name("login") ) .click();
+
+THREAD.SLEEEP:Thread.sleep(2000); it throw exception: public static void main (String[] args) throws Exception { 
+
+GET TEXT- 
+String errormessage = errror.getText (); 
+System. out.println ("Error Message = "+errormessage) ;
+
+IS DISPLAYED like CAPTURE LOGO- if any element is displaying or not
+WebElement logo = driver. findElement (By. xpath("//img[@alt='Facebook']"));
+boolean statusOfLogo = logo.isDisplayed();
+System. out.println ("is Logo present = " + statusOfLogo);
+
+IS SELECTED- if any button enabaled or not, or check box, drop down, or radio button selected or not 
+WebElement male = driver.findElement (By. xpath("//input [@value='2']") );
+boolean statusOfRadioButton = male.isSelected();
+System. out.println ("Status Of Radio Button= " + statusOfRadioButton);
+
+CREATE ACCOUNT CLICK OPERATION
+
+// click on Create New Account button
+WebElement CreateNewAccount = driver
+.findElement (By. xpath("//a[@role=\"button\" and text () = 'Create new account']") );
+CreateNewAccount.click();
+
+GET CSS VALUE/ FONT FAMILY- 
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String fontFamily = signUp.getCssValue ("font-family");
+System. out.println ("Font famliy = "+fontFamily);
+
+BACKGROUND COLOR: 
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String background = signUp.getCssValue ("background");
+System. out.println("background = "+background;
+
+GET ATTRIBUTE-
+String attribute = signUp.getAttribute ("type");
+System. out.println ("Attribute = "+attribute);
+
+
+
+**************************************------------------------------------------<br></P><p><p></
 FUNCTIONS----------------------
 FIND ELEMENT=  LOCATE & EXTRACT WEB ELLEMENT
 
@@ -27,7 +96,7 @@ FIND ELEMENT=  LOCATE & EXTRACT WEB ELLEMENT
 FUNCTIONS----------------------
 FIND ELEMENT=  LOCATE & EXTRACT WEB ELLEMENT
 (method which capture web element with help of locator in BY class)
-to extract- we locate with by class( 8 locators- id, class, link text, partial link text, xpath)
+to extract- we locate with by class( 8 locators- id, class, link text, partial link text, xpath,name)
 then we extract 
 Driver.find element (By.id ("value of locator"));
 WebElement email = driver.findElement (By.id("email"));
@@ -226,6 +295,7 @@ driver.get ("https://facebook.com");
 driver.manage() .window().maximize();
 
 WebElement email = driver.findElement (By.id("email"));
+email.clear();
 email.sendKeys ("rakeshsinghraks");
 // we send email here in the box 
 
@@ -253,6 +323,7 @@ driver.navigate().back();
 IS DISPLAYED
 IS ENABLED
 IS SELECTED
+Create new account with click 
 
 **************************************------------------------------------------<br></P><p><p></p>
 
@@ -292,9 +363,7 @@ driver. findElement (By.name("login") ) .click();
 Thread.sleep(3000);
 
 WebElement errror = driver. findElement (By. className("_9ay7") );
-
 String errormessage = errror.getText ();
-
 System. out.println ("Error Message = "+errormessage) ;
 
 //navigate back
@@ -303,9 +372,120 @@ driver.navigate().back();
 
 // capture logo webElement
 WebElement logo = driver. findElement (By. xpath("//img[@alt='Facebook']"));
-
 // check if logo is displayed on the screen
-boolean statusOfLogo = logo.isDisplayed () ;
+boolean statusOfLogo = logo.isDisplayed();
 System. out.println ("is Logo present = " + statusOfLogo);
+
+// click on Create New Account button
+WebElement CreateNewAccount = driver
+.findElement (By. xpath("//a[@role=\"button\" and text () = 'Create new account']") );
+CreateNewAccount.click();
+
+Thread.sleep(2000);
+
+WebElement male = driver.findElement (By. xpath("//input [@value='2']") );
+boolean statusOfRadioButton = male.isSelected();
+System. out.println ("Status Of Radio Button= " + statusOfRadioButton);
+
+
+
+}
+
+}
+**************************************------------------------------------------<br></P><p><p></p>
+GET CSS VALUE/ FONT FAMILY- 
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String fontFamily = signUp.getCssValue ("font-family");
+System. out.println ("Font famliy = "+fontFamily);
+
+BACKGROUND COLOR: 
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String background = signUp.getCssValue ("background");
+System. out.println("background = "+background;
+
+GET ATTRIBUTE-
+String attribute = signUp.getAttribute ("type");
+System. out.println ("Attribute = "+attribute);
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WebElementAPI;
+
+import org. openqa. selenium. By;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. WebElement;
+import org. openqa. selenium. chrome. ChromeDriver;
+
+public class WebElementAPI {
+
+public static void main (String[] args) throws Exception {
+
+System. setProperty ("webdriver. chrome.driver",
+System. getProperty("user.dir") + "\Driver\\chromedriver.exe");
+// you can copy this path by going to driver folder then property
+
+WebDriver driver = new ChromeDriver () ;
+
+driver.get ("https://facebook.com");
+
+driver.manage() .window().maximize();
+
+WebElement email = driver.findElement (By.id("email"));
+email.clear();
+email.sendKeys ("rakeshsinghraks");
+// we send email here in the box 
+
+WebElement password = driver.findElement (By.id("pass"));
+password. sendKeys ("hakoonamatata");
+// we pass the password here 
+
+driver. findElement (By.name("login") ) .click();
+//click iperation is performed here
+
+Thread.sleep(3000);
+
+WebElement errror = driver. findElement (By. className("_9ay7") );
+String errormessage = errror.getText ();
+System. out.println ("Error Message = "+errormessage) ;
+
+//navigate back
+driver.navigate().back();
+
+// capture logo webElement or any element displayed
+WebElement logo = driver. findElement (By. xpath("//img[@alt='Facebook']"));
+// check if logo is displayed on the screen
+boolean statusOfLogo = logo.isDisplayed();
+System. out.println ("is Logo present = " + statusOfLogo);
+
+// click on Create New Account button
+WebElement CreateNewAccount = driver
+.findElement (By. xpath("//a[@role=\"button\" and text () = 'Create new account']") );
+CreateNewAccount.click();
+
+Thread.sleep(2000);
+
+// if any button enabaled or not, or check box, drop down, or radio button selected or not 
+WebElement male = driver.findElement (By. xpath("//input [@value='2']") );
+boolean statusOfRadioButton = male.isSelected();
+System. out.println ("Status Of Radio Button= " + statusOfRadioButton);
+
+//Signup button to get CSS value
+
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String fontFamily = signUp.getCssValue ("font-family");
+System. out.println ("Font famliy = "+fontFamily);
+
+//how to get the attribute value of a webElement
+String attribute = signUp.getAttribute ("type");
+System. out.println ("Attribute = "+attribute);
+
+//Signup button COLOR Scheme- Background
+WebElement signUp= driver. findElement (By.name("websubmit") );
+String background = signUp.getCssValue ("background");
+
+System. out.println ("background = "+background);
+
+}
 
 }
