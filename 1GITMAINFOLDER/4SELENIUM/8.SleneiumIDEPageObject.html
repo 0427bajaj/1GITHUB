@@ -1,0 +1,85 @@
+**************************************------------------------------------------<br></P><p><p></p>
+IN JAVA
+here xpath should always been in single quote -paste xpath inside the " " the double quote only,
+xpath from tag to big square bracket
+**************************************------------------------------------------<br></P><p><p></p>
+driver. findElement (By. xpath ("//a[contains (@data-csa-c-content-id,'help' ) ] ") );
+here xpath should always been in single quote 
+
+more eg: 
+driver. findElement (By. xpath ("//a [text()='mobile'] ") );
+
+driver. findElement (By. xpath ("//html tag [contains (text (),'value/visible text/expectedvalue')]  ") );
+
+driver. findElement (By. xpath ("//html tag [contains (@atribute,'attirbute value')]   ") );
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FIND ELEMENT & LOCATORS
+XPATH
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> text ()
+//html tag [text ()='value/visible text']
+eg: //a [text()='mobile']
+
+>> contains () WITH VISBILE TEXT
+//html tag [contains (text (),'value/visible text/expectedvalue')] 
+eg: //a[contains(text(),'mobile')]
+
+>> contains () WITH ATTRIBUTE
+ //html tag [contains (@atribute,'attirbute value')] 
+eg: //a[contains(@class,'nav-a')]
+
+**************************************------------------------------------------<br></P><p><p></p>
+XPATH TYPES
+**************************************------------------------------------------<br></P><p><p></p>
+Absolute- longeest path
+Relative- Shortest path- identifying element with its unique attribute, its short and crisp to the point path-3 functions
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TEXT () FUNCTION
+- exact visible, in text we use equla to =
+**************************************------------------------------------------<br></P><p><p></p>
+1 text()= //html tag [text ()='value/visible text'] like //a [text()='mobile']
+>> text()= //html tag [text ()='value/visible text']
+=======( value shouuld be exact replica of visible text)rigid in nature)
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CONTAIN () FUNCTION
+- help us to find with partial visible text , when content is changing, text we use comma , it trim starting and end
+**************************************------------------------------------------<br></P><p><p></p>
+2 contains ()= /
+>> contains () WITH VISBILE TEXT= //html tag [contains (text (),'value/visible text/expectedvalue')] 
+eg://h2[contains(text(),'facebook helps')]
+
+//html tag [contains (text (),'value/visible text')] like //a [contains (text(),'mobile')]
+>> contains () WITH ATTRIBUTE= //html tag [contains (@atribute,'attirbute value')] 
+eg: //a[contains(@class,'mobile')]
+
+
+========trim the spaces- we can use part of the text that is visible on UI- help us to find with partial visible text, can remove from start and end
+=======(trim the places for the actual value before and after text, we do not provide Space --exact visible text)
+=======( it will ignore spaces before and after the text and then compare with expected value, and apritail expected value possible)
+=======is you see carefully you see in text function text ()='mobile' come in bracket and = turn into comma, and out side this bracket we put contain
+===******** if things goes on changing we can still locate
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TEXT () & CONTAIN () FUNCTION- COMPARIOSION
+**************************************------------------------------------------<br></P><p><p></p>
+Coomparision:
+>> text()= //html tag [text ()='value/visible text']
+>> contains () WITH VISBILE TEXT= //html tag [contains (text (),'value/visible text/expectedvalue')] 
+>> contains () WITH ATTRIBUTE= //html tag [contains (@atribute,'attirbute value')] 
+
+IN CONTAINS function= contains word is used in the starting of bracket 
+IN CONTAINS function = comma is used instead of equal to
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+START WITH
+**************************************------------------------------------------<br></P><p><p></p>
+3) Start with ()
