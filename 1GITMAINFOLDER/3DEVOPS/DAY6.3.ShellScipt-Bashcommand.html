@@ -1,0 +1,131 @@
+Shell script in structure start with she bang , make sure you provide executable, if you haave dah so it will fail, so make sure you provide the RIGHT EXECUTABLE
+this
+#!/bin/sh 
+or 
+#!/bin/bash 
+
+insert
+########################################
+then # Auther: Abhishek
+# date: 01/12/2022
+# this script outpit the node health
+# version : V1
+
+########################################
+SET DEBUG MODE
+set -x # debug mode ( this command will print all commands wbefore the result)
+if you do not want this command you can comment this command
+----------------------------------------------------
+ECHO STSTEMENTS:
+will tell what this command is doing - echo will tell what you are typing for the command
+
+echo "print the disk space"
+df- h
+
+echo " print the memenory"
+free-g
+
+echo " print the cpu"
+ nproch
+----------------------------------------------------
+$ ps -ef 
+// to check all the process running on the machine
+----------------------------------------------------
+GREP 
+is used to filter out the info in the query
+$ ps -ef | grep "amazon"
+// to check all the process running on the machine from amazon
+
+$ getmeusernames | grep "sai"
+will get all with sai Name
+
+----------------------------------------------------
+PIPE PARAMETER
+pipe parmeter send the output of first to second 
+./test.sh |grep 1
+----------------------------------------------------
+
+Date reach to STDIN -  so pipe work for next command only
+----------------------------------------------------
+AWK
+man awk
+awk can give you info from the column like here from column 2 2
+$ ps -ef | grep "amazon" | awk -F" " '{print $2)}"
+----------------------------------------------------
+
+EXIST ON ERROR & NOT EXIST IF PIPE FAIL
+set -x # debug mode
+set -e # exit the script when there is an error 
+set -o pipefail ( it check last command in pipe and help to exist if the pipefail)
+
+
+set -exo pipefail  ( all can be run all three command together as well, but its not good practice)
+create a user, create a file , add the username to the file
+----------------------------------------------------
+TO FIND ERROR IN THE LOG FILE- RAW FORMAT IN GIT HUB
+CURL 
+
+copy log file location , it will retrive info from the intervention-avoiding
+CURL // htptp (followed by log file location and can do grp error)
+man curl
+Wgate download the file , curl command directly get the info
+
+cat logfile | grep error
+
+----------------------------------------------------
+
+FIND COMMAND
+
+sudo
+sudo su-
+sudo  harsha ( it take you to the root user )
+su abhishk ( switch user)
+find/ -name pm ( will deny the permission)
+
+----------------------------------------------------
+
+IF THEN ELSE a=4 b=10
+
+
+a=4
+b=10
+
+if [ $a > $b ]
+then
+echo "a is great than b "
+else
+echo "b is greater than a"
+
+fi
+
+
+----------------------------------------------------
+FOR LOOPS:
+# iterations -> for
+
+for i in {1.100}; do echo $1; done
+
+for
+do
+
+increment
+
+done
+
+2
+
+2
+----------------------------------------------------
+TRAP <command- to see the signal
+trap contol c do not do anything, or send me email, or print ststement that you cannot do this
+trap control the signal
+is trapping the signal - not making it run
+
+eg: trap"echo dont use the contrl+c" SIGINT^C
+eg: trap "rm-rf *^CSIGINT"
+
+it kill the specific file- kill -9 processid
+terminate execution/ to stop execution- control c
+These are called signal
+there are different signal in linux- this SIGKILL
+----------------------------------------------------
