@@ -1,0 +1,124 @@
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+COMMON XPATHS
+**************************************------------------------------------------<br></P><p><p></p>
+
+>> ATTRIBUTE & ELEMENT 
+
+>>//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
+
+>> CONTAIN:
+//a[contains(text(),'mobile')]
+
+>> CHAINING
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CHILD & PARENT & SIBILING INDEXING-CHAINGING TOGETHER
+remember decent is grand parents to child
+ancestor is child to grand parent
+**************************************------------------------------------------<br></P><p><p></p>
+>> MAIN QUERY CHAINING
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+
+>> >> MAIN QUERY CHAINING+ these syntax before second html tag
+this is main where we use in the chaining second html tag for eg a is here, so we use this befor second html tag this
+eg: //a[contains(text(),'mobile')]//ancestor::div[@id='sobile']
+eg: //a[contains(text(),'mobile')]//ancestor::a[@id='mbile']
+
+//ancestor::a
+/child::li/child::a
+//ancestor::a
+//decendant::a
+/child::li/child::a
+/..//following-sibling::li/a
+
+>> for ulitamte parent
+eg: //a[contains(text(),'mobile')]//ancestor::li
+/li/a
+//ancestor::li
+//decendant::a
+//parent::li
+
+
+>> For just parentfrom child
+/../..
+eg: //a[contains(text(),'mobile')]/..
+or
+ //a[contains(text(),'mobile')]/../..
+
+>> We can also use parent +child info
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+child first path+parent info second path
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+:: scope resolution does not matter we use // or / nbefore child parent or ancestor
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO MOVE FROM PARENT TO PARENT CHILD
+**************************************------------------------------------------<br></P><p><p></p>
+CHILD
+//select[@aria-label='month']/li/a[contains(text(),'mobile') ]
+eg: //select[@class='mobile']/li/a[contains(text(),'mobile') ]
+parent/ child
+
+only // before html tag , one change to li or option
+
+OR SCOPE RESOLUTION
+eg: //select[@class='mobile']/child::li/child::a[contains(text(),'mobile') ]
+// these change to child ::
+
+:: scope resolution
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO MOVE FROM CHILD TO PARENT can use /../..
+**************************************------------------------------------------<br></P><p><p></p>
+//a[contains(text(),'mobile')]/../..
+this will take you to immidate parent from child /..
+
+or 
+
+PARENT WITH SCOPE RESOLUTION
+//a[contains(text(),'mobile')]//parent::li
+parent ::tagname-to immidiate parent
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO MOVE FROM CHILD TO ANCESTORS can use /../..
+grand child/ancestors
+**************************************------------------------------------------<br></P><p><p></p>
+ANCESTOR WITH SCOPE RESOLUTION( great grand parents)
+//a[contains(text(),'mobile')]//ancestor::li
+//a[contains(text(),'mobile')]//ancestor::ui
+//a[contains(text(),'mobile')]//ancestor::div[@id='sobile']
+parent ::tagname-to immidiate parent, can also go to grand parent Ui, div is grand grand parent
+>a>li>ui>div  child/parent/grand parent/great grand parent
+grand child to/ancestors
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO MOVE FROM CHILD TO DECENDANT can use /../..
+Decendant to/grand child
+**************************************------------------------------------------<br></P><p><p></p>
+
+//div[@id='sobile']//decendant::a[contains(text(),'mobile')]
+//div[@id='sobile']//decendant::a[2]
+//div[@id='sobile']//decendant::a[contains(@href,'movers.com')]
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FOLLOWING SIBILING
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+//a[contains(@href,'movers.com')and @class='mobile']/..//following-sibling::li[2]
+or
+//a[contains(@href,'movers.com')and @class='mobile']/..//following-sibling::li/a[contains(text(),'mobile')]

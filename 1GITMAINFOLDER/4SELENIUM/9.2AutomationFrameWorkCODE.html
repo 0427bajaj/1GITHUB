@@ -1,0 +1,60 @@
+**************************************------------------------------------------<br></P><p><p></p>
+COMMON XPATHS
+**************************************------------------------------------------<br></P><p><p></p>
+
+>> ATTRIBUTE & ELEMENT 
+
+>>//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
+
+>> CONTAIN:
+//a[contains(text(),'mobile')]
+
+>> CHAINING
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CHILD & PARENT & SIBILING INDEXING-CHAINGING TOGETHER
+remember decent is grand parents to child
+ancestor is child to grand parent
+**************************************------------------------------------------<br></P><p><p></p>
+>> MAIN QUERY CHAINING
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+
+>> >> MAIN QUERY CHAINING+ these syntax before second html tag
+this is main where we use in the chaining second html tag for eg a is here, so we use this befor second html tag this
+eg: //a[contains(text(),'mobile')]//ancestor::div[@id='sobile']
+eg: //a[contains(text(),'mobile')]//ancestor::a[@id='mbile']
+
+//ancestor::a
+/child::li/child::a
+//ancestor::a
+//decendant::a
+/child::li/child::a
+/..//following-sibling::li/a
+/..//Proceeding:li/a[contains(text(),'mobile')]
+
+>> for ulitamte parent
+eg: //a[contains(text(),'mobile')]//ancestor::li
+/li/a
+//ancestor::li
+//decendant::a
+//parent::li
+//proceeding-sibling::li/div
+
+
+>> For just parentfrom child
+/../..
+eg: //a[contains(text(),'mobile')]/..
+or
+ //a[contains(text(),'mobile')]/../..
+
+>> We can also use parent +child info
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+child first path+parent info second path
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+:: scope resolution does not matter we use // or / n efore child parent or ancestor
