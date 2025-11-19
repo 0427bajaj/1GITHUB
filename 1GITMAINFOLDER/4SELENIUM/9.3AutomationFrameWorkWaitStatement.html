@@ -1,0 +1,77 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+WAIT STATEMENT
+**************************************------------------------------------------<br></P><p><p></p>
+it help to control the speed of script as there can be internet or loading time issue and script can fail
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+HARD CODE SLEEP- Java wait statement- wait till TIME PASS
+**************************************------------------------------------------<br></P><p><p></p>
+
+>>Thread. sleep(3000);
+
+1000ms=1sec
+it is too much delay
+it will not release control to the next line till this TIME PASS
+its noot advisable
+
+>> Thread.sleep("milliseconds like 5000");
+>> it will throws InterruptedException {
+
+CODE:
+
+public static void main (String[] args)throws InterruptedException {
+
+driver.findElement (By.name("login")) .click();
+
+Thread. sleep(3000);
+
+WebElement errror = driver. findElement (By. className(" 9ay7") );
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+IMPLICIT WAIT ( wait for page to load)- max time- where html document has to be loaded, we can put anywhere wherever it take time to load
+**************************************------------------------------------------<br></P><p><p></p>
+>>driver.manage () . timeouts () .implicitlyWait (Duration. ofSeconds (20) );
+
+but 500mili sec, half a sec, its going to check whether , 
+when html document is getting loaded to show the element or perform action and show html to the system
+once its done it will release the control 
+>>driver.manage(). timeouts(). implicitlywait(durationofwaitin sec,like 20);
+
+
+CODE:
+WebDriver driver = new ChromeDriver () ;
+
+//implicitly wait statement
+driver.manage () . timeouts () .implicitlyWait (Duration. ofSeconds(20) );
+
+driver.get ("https://facebook.com");
+
+driver.manage () .window() .maximize();
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+EXPLICIT WAIT( wait for element)- max time + condition from Expectedconditions class has been used
+**************************************------------------------------------------<br></P><p><p></p>
+Expectedconditions is class that have different method
+
+WebdriverWait wait= new webdriverwait (driver,duration.ofseconds(20));
+wait.until (Expectedconditions.elementtobecliickable)
+mobiles.click();
+
+
+CODE:
+// click on Create New Account button
+WebElement CreateNewAccount = driver
+. findElement (By. xpath("//a[@role= 'button' and text () = 'Create new account' ]") ) ;
+
+//Explicitly wait statement -
+WebDriverWait wait = new WebDriverWait (driver, Duration. ofSeconds(20));
+
+wait.until (ExpectedConditions.elementToBeClickable(CreateNewAccount) ) ;I
+
+CreateNewAccount.click();
