@@ -1,0 +1,93 @@
+**************************************------------------------------------------<br></P><p><p></p>
+FULL CLASS CODE- 
+GET WINDOW HELP TO GET WINDOW ID- that help to sitch selenium focus with driver.switch to
+we also set values and then use iterate interface to retive data
+**************************************------------------------------------------<br></P><p><p></p>
+
+import java.time. Duration;
+
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. chrome.ChromeDriver;
+
+public class Irctcwindow {
+
+public static void main (String[] args) {
+
+System. setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\Driver\\chron
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+WebDriver driver = new ChromeDriver ();
+
+// implicitly wait statement
+driver.manage() .timeouts ().implicitlyWait (Duration.ofSeconds(20));
+
+driver.get ("https://irctc.co.in");
+
+driver.manage () .window().maximize();
+
+//------------------------------------------- this all was to extract the window ids and to iterate and put in set
+//*******************************************
+//how to get the current window id/parent window id
+String parentWin = driver.getWindowHandle();
+System. out.println ("Parent Window - "+ parentWin) ;
+// it will be store in the set object and we got the parent window id
+
+//*******************************************
+//now opened the another window or another page
+WebElement flights = driver.findElement (By.xpath("//a[contains(text(), 'FLIGHTS') ]") );
+flights.click();
+
+//*******************************************
+//setting SET data for all the window IDs to get, it will have all window IDS
+// how to get all the window ids
+Set<String> set = driver.getWindowHandles ();
+
+//*******************************************
+// inside set we have all the the window ids, iterator help in retriveing the data from util pakage, it.next (); helps to get next data in set
+// how to retrieve each window id from a set -- > iterator interface , we intiate this method set extend iterator 
+Iterator it = set.iterator () ;
+
+//*******************************************
+//now to retrieve each data- it.next () ; is used- first it will retrive parent 
+String parentWindowId = it.next () ;
+
+//*******************************************
+// for next data, then will for child 
+string childWindowId= it.next () ;
+
+//*******************************************
+// to check if it has more windows ids, here it will go and tell false or true if more is there
+boolean status = it.hasNext () ;
+System. out.println ("Do we have any ids still = "+ status);
+//*******************************************
+//------------------------------------------- this all was to extract the window ids and to iterate and put in set
+
+//*******************************************
+// now we will shift to child window or any window with window ids
+// shift the focus of Selenium to the child window
+driver.switchTo().window(childWindowId);
+//*******************************************
+//------------------------------------------- after this we are on window where we want to and we can run the operations
+
+//get the title of the page
+String title = driver.getTitle();
+System. out.println(title);
+
+//to only close the child window
+driver.close();
+
+//------------------------------------------- once you close now you can again use driver .switch operation to go to the window you want and 
+//check url to check where you are
+//selenium now lost its focus - now switch your focus again to any desired window
+driver.switchTo().window (parentWindowId);
+
+// check the current url
+String url = driver.getCurrentUrl();
+
+System. out.println(url);
+
+// close all the window
+driver.quit();
+}
+
+}
