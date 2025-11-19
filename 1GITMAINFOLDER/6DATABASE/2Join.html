@@ -1,0 +1,39 @@
+**************************************------------------------------------------<br></P><p><p></p>
+JOINS
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+select jad.job_id, jad.template_id, jad.created_timestamp,jrc.total_records, jrc.cmf_count,jrc.enrichment_count,jrc.publish_count, jrc.error_count  
+from  job_additional_details jad 
+join job_record_count  jrc
+on jad.job_id =jrc.job_id;
+
+select jad.job_id, jad.template_id, jad.created_timestamp,jrc.total_records, jrc.cmf_count,jrc.enrichment_count,jrc.publish_count, jrc.error_count 
+from  job_additional_details jad,
+job_record_count jrc
+where jad.job_id = jrc.job_id ;
+-------------------------------------------------
+select *
+from job_additional_details jad 
+left join
+job_record_count  jrc
+on jad.job_id =jrc.job_id;
+-------------------------------------
+select *
+from job_additional_details jad 
+inner join 
+job_record_count  jrc
+on jad.job_id =jrc.job_id
+LIMIT 5;
+-------------------------------------
+select *
+from job_additional_details jad 
+inner join 
+job_record_count  jrc
+on jad.job_id =jrc.job_id
+and jad.mode_of_request !='SingleAPI'
+and jad.created_timestamp > '2024-03-19 14:15:00'
+and jad.created_timestamp < '2024-03-19 14:50:00' 
+order by jad.created_timestamp asc
+LIMIT 5;
+------------------;
