@@ -11,14 +11,14 @@ INNER JOIN:
 JOIN
 **************************************------------------------------------------<br></P><p><p></p>
 
-
+ALL JOINS
 select jad.job_id, jad.template_id, jad.created_timestamp,jrc.total_records, jrc.cmf_count,jrc.enrichment_count,jrc.publish_count, jrc.error_count 
 
 FROM 
 job_additional_details jad 
 
 -- CARTESIAN JOIN:
--- mSELF JOIN:
+-- SELF JOIN:
 -- FULL JOIN:
 -- RIGHT JOIN
 -- LEFT JOIN:
@@ -35,6 +35,17 @@ and jad.created_timestamp < '2024-03-19 14:50:00'
 order by jad.created_timestamp asc
 
 LIMIT 5;
+
+------------------
+
+SELF JOIN
+SELECT A.campaign_id  AS CustomerName1, B.campaign_id  AS CustomerName2, A.source_type
+FROM campaign_details A, campaign_details B
+WHERE A.campaign_id = B.campaign_id
+AND A.source_type = B.source_type
+and A.campaign_id=10
+-- and A.created_by = 'P3103402'
+ORDER BY A.source_type 
 
 
 **************************************------------------------------------------<br></P><p><p></p>
@@ -59,6 +70,10 @@ CARTESIAN JOIN: returns the Cartesian product of the sets of records from the tw
 We can take each first four joins in Details :
 
 We have two tables with the following values.
+
+
+
+
 
 
 **************************************------------------------------------------<br></P><p><p></p>

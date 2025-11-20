@@ -2,23 +2,33 @@
 COMMON XPATHS- remember there should be space after html tag //a hereSPACE []
 **************************************------------------------------------------<br></P><p><p></p>
 
+************XXXXXXXXXXXXXXX***************
 >> ATTRIBUTE & ELEMENT - remember this need to be exact value
 
->>//htmltag [@attribute='attribute value']
-eg: //input[@type='text']
+>> TEXT FUNCTION
+//html tag [text ()='value/visible text']
 
->> CONTAIN:
+>> CONTAIN FUNCTION
 //a[contains(text(),'mobile')]
 
 >> CHAINING
 eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
 
+eg: //a[@class='id'] and contains(text(),'mobile')
+
+eg: //a[@class='id'] Or contains(text(),'mobile') 
+
+>> ATTRIBUTE & VALUE
+>>//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
 
 **************************************------------------------------------------<br></P><p><p></p>
 CHILD & PARENT & SIBILING INDEXING-CHAINGING TOGETHER
 remember decent is grand parents to child
 ancestor is child to grand parent
 **************************************------------------------------------------<br></P><p><p></p>
+
+
 >> MAIN QUERY CHAINING
 eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
 
