@@ -1,0 +1,74 @@
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+LOGIN & USE
+**************************************------------------------------------------<br></P><p><p></p>
+
+> CLICK : https://kibana.elastic.high.infra.aws.spctrm.net/s/unified_customer_communications/app/discover
+> Click on 3 bars:  
+>Click Discover 
+>Add from here what you would like to add to the log search, just click on + sign next to item you would like to add( like time stamp, log, message, level etc)
+> Select here environment
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+LOG QUERIES 
+**************************************------------------------------------------<br></P><p><p></p>
+> To Select component
+Click '+' sign to add filter
+select a field= application.name.keyword, 
+Select operator = is
+Select a value= 'component you want'
+
+>To ADD Log Level Error
+Click '+' sign to add filter
+select a field= level 
+Select operator = is
+Select a value= error
+
+> To Check Message
+Click '+' sign to add filter
+select a field= message
+Select operator = is
+eg for Select a value= payment
+
+You can also click on edit SQL, like here in query at payment you can add any other word
+Can Also Add group of words to the query
+
+> By just adding phrases with and and or from search bar 
+We can also add to search bar words with quotation and * to search
+like:-
+"*Sql*" OR "*jdbc*"
+
+> For AND OR
+"created added services" or "created removed services"
+"Response status line reason: Service Unavailable" and " a8917c72ae716abb"
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ADD TIME
+**************************************------------------------------------------<br></P><p><p></p>
+
+Expand log and check
+Expand arrow next to the log to see whole message, it can be copied as well
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ADD TIME
+**************************************------------------------------------------<br></P><p><p></p>
+"Response status line reason: Service Unavailable"
+
+"Response status line reason: Service Unavailable" and " a8917c72ae716abb"
+
+"created added services" or "created removed services"
+
+level : "Error"
+---------------------------
+Component: 
+ucc-hub-order-notification-processor
+ucc-hub-order-notification-processor-1
+
+The following search keywords should return no results
+"*Error response: HTTP Response code: 503*"
+"*Error executing request:*"
