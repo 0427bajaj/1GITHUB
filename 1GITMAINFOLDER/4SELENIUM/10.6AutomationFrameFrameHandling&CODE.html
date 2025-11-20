@@ -2,9 +2,15 @@
 
 **************************************------------------------------------------<br></P><p><p></p>
 TO CHECK IF SITE HAVE IFRAMES
-Switch to is used to go to //frame
 
 **************************************------------------------------------------<br></P><p><p></p>
+Switch to is used to go to //frame
+remember in iframe Xapath is used to perform function on <element>
+But main is switch to in the we use FRAME NAME that is displaying on UI to switch to frame, aslo name is will show in code like name =""
+ans use frame in class by name or id or as webelement target locator( when usind something else in xpath than name)
+
+
+********************
 
 >> RIGHT CLICK ON SITE- it will give option view frame source 
 
@@ -83,7 +89,7 @@ driver. findElement (By.xpath("//a[text () = 'org.openqa.selenium']")) .click();
 //come back to parent html document
 driver.switch To().defaultContent();
 // ------------------------------------
-// now switch to any new window once again, first was package list frame anow package frame 
+// now switch to any new window once again, first was package list frame anow package frame // frame by name or id
 driver.switchTo().frame ("packageFrame");
 
 //now find path for any element under this fram and perform click on anything under this frame
@@ -93,7 +99,7 @@ driver. findElement (By. xpath ("//a[@href='Alert.html' and @title='interface in
 driver.switch To().defaultContent();
 
 // ------------------------------------
-// switch to another class Frame
+// switch to another class Frame- by target locator
 driver.switchTo () .frame(classFrame);
 
 WebElement interfaceText = driver. findElement (By. xpath("//h2[@title='Interface Alert' ] ") ) ;
