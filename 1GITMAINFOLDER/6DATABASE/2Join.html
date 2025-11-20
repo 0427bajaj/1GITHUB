@@ -1,39 +1,203 @@
 **************************************------------------------------------------<br></P><p><p></p>
-JOINS
+JOINS- 
+Remember it has no where clause, on is used at where place  with condition of = in two tables
+**************************************------------------------------------------<br></P><p><p></p>
+CARTESIAN JOIN:
+SELF JOIN:
+FULL JOIN:
+RIGHT JOIN
+LEFT JOIN:
+INNER JOIN:
+JOIN
 **************************************------------------------------------------<br></P><p><p></p>
 
 
-select jad.job_id, jad.template_id, jad.created_timestamp,jrc.total_records, jrc.cmf_count,jrc.enrichment_count,jrc.publish_count, jrc.error_count  
-from  job_additional_details jad 
-join job_record_count  jrc
-on jad.job_id =jrc.job_id;
-
 select jad.job_id, jad.template_id, jad.created_timestamp,jrc.total_records, jrc.cmf_count,jrc.enrichment_count,jrc.publish_count, jrc.error_count 
-from  job_additional_details jad,
-job_record_count jrc
-where jad.job_id = jrc.job_id ;
--------------------------------------------------
-select *
-from job_additional_details jad 
-left join
+
+FROM 
+job_additional_details jad 
+
+-- CARTESIAN JOIN:
+-- mSELF JOIN:
+-- FULL JOIN:
+-- RIGHT JOIN
+-- LEFT JOIN:
+-- INNER JOIN:
+-- JOIN
 job_record_count  jrc
-on jad.job_id =jrc.job_id;
--------------------------------------
-select *
-from job_additional_details jad 
-inner join 
-job_record_count  jrc
-on jad.job_id =jrc.job_id
-LIMIT 5;
--------------------------------------
-select *
-from job_additional_details jad 
-inner join 
-job_record_count  jrc
-on jad.job_id =jrc.job_id
+
+ON
+jad.job_id =jrc.job_id
+
 and jad.mode_of_request !='SingleAPI'
 and jad.created_timestamp > '2024-03-19 14:15:00'
 and jad.created_timestamp < '2024-03-19 14:50:00' 
 order by jad.created_timestamp asc
+
 LIMIT 5;
-------------------;
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TYPES
+**************************************------------------------------------------<br></P><p><p></p>
+There are different types of joins available in SQL:
+
+INNER JOIN: returns rows when there is a match in both tables.- RETURN COMMON IN BOTH
+
+LEFT JOIN: returns all rows from the left table, even if there are no matches in the right table.- EVERYTHING FROM FIRST/LEFT, and COMMON FROM 2ND
+
+RIGHT JOIN: returns all rows from the right table, even if there are no matches in the left table- EVVERYTHING FROM 2ND TABLE IN QUERY/RIGHT and COMMON IN 1ST
+
+FULL JOIN: combines the results of both left and right outer joins- EVERYTHING
+
+The joined table will contain all records from both the tables and fill in NULLs for missing matches on either side.
+
+SELF JOIN: joins a table to itself as if the table were two tables, temporarily renaming at least one table in the SQL statement.
+
+CARTESIAN JOIN: returns the Cartesian product of the sets of records from the two or more joined tables.
+
+We can take each first four joins in Details :
+
+We have two tables with the following values.
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ADDITIONAL INFO:
+
+JOINS- Join, Inner Join( only common in two), Left join(first all and second table only common)
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+
+TableA
+
+sql
+id  firstName                  lastName
+.......................................
+1   arun                        prasanth                 
+2   ann                         antony                   
+3   sruthy                      abc                      
+6   new                         abc                                           
+TableB
+
+sql
+id2 age Place
+................
+1   24  kerala
+2   24  usa
+3   25  ekm
+5   24  chennai
+....................................................................
+
+INNER JOIN
+
+Note : gives the intersection of the two tables, i.e. rows TableA and TableB have in common.
+
+Syntax
+
+sql
+SELECT table1.column1, table2.column2...
+  FROM table1
+ INNER JOIN table2
+    ON table1.common_field = table2.common_field;
+Apply it in our sample table :
+
+sql
+SELECT TableA.firstName,TableA.lastName,TableB.age,TableB.Place
+  FROM TableA
+ INNER JOIN TableB
+    ON TableA.id = TableB.id2;
+Result
+
+sql
+firstName       lastName       age  Place
+..............................................
+arun            prasanth        24  kerala
+ann             antony          24  usa
+sruthy          abc             25  ekm
+LEFT JOIN
+
+Note : gives all selected rows in TableA, plus any common selected rows in TableB.
+
+Syntax
+
+sql
+SELECT table1.column1, table2.column2...
+  FROM table1
+  LEFT JOIN table2
+    ON table1.common_field = table2.common_field;
+Apply it in our sample table :
+
+sql
+SELECT TableA.firstName,TableA.lastName,TableB.age,TableB.Place
+  FROM TableA
+  LEFT JOIN TableB
+    ON TableA.id = TableB.id2;
+Result
+
+sql
+firstName                   lastName                    age   Place
+...............................................................................
+arun                        prasanth                    24    kerala
+ann                         antony                      24    usa
+sruthy                      abc                         25    ekm
+new                         abc                         NULL  NULL
+RIGHT JOIN
+
+Note : gives all selected rows in TableB, plus any common selected rows in TableA.
+
+Syntax
+
+sql
+SELECT table1.column1, table2.column2...
+  FROM table1
+ RIGHT JOIN table2
+    ON table1.common_field = table2.common_field;
+Apply it in our sample table :
+
+sql
+SELECT TableA.firstName,TableA.lastName,TableB.age,TableB.Place
+  FROM TableA
+ RIGHT JOIN TableB
+    ON TableA.id = TableB.id2;
+Result
+
+sql
+firstName                   lastName                    age     Place
+...............................................................................
+arun                        prasanth                    24     kerala
+ann                         antony                      24     usa
+sruthy                      abc                         25     ekm
+NULL                        NULL                        24     chennai
+FULL JOIN
+
+Note : returns all selected values from both tables.
+
+Syntax
+
+sql
+SELECT table1.column1, table2.column2...
+  FROM table1
+  FULL JOIN table2
+    ON table1.common_field = table2.common_field;
+Apply it in our sample table :
+
+sql
+SELECT TableA.firstName,TableA.lastName,TableB.age,TableB.Place
+  FROM TableA
+  FULL JOIN TableB
+    ON TableA.id = TableB.id2;
+Result
+
+sql
+firstName                   lastName                    age    Place
+...............................................................................
+arun                        prasanth                    24    kerala
+ann                         antony                      24    usa
+sruthy                      abc                         25    ekm
+new                         abc                         NULL  NULL
+NULL                        NULL                        24    chennai
+Interesting Fact
+
+For INNER joins the order doesn't matter.
+For (LEFT, RIGHT or FULL) OUTER joins, the order matters.

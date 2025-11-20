@@ -5,7 +5,16 @@ GET WINDOW HANDLE, SET OPERATION ITERATION, SWITCH TO
 when on page target = "_blank", it open new window when we click so to have control of selnium 
 we use driver.switch with window handle function to focus selnium from one window to another
 
-
+Actions in code: 
+//***initiate window handle and get parent page id
+//***click and opening another page to work on
+//***set all windows ids, in set to iterate/retrive later
+//*** Intiate iterate/retrive data
+//***iterate/retrive first window id
+//***iterate/retrive next window id
+//***check if there is more data available in set to iterate/retrive 
+//***now switch from one window to another with its window ID
+//***now switch from one window to another, going back to parent, with its window ID
 
 
 **************************************------------------------------------------<br></P><p><p></p>
@@ -110,35 +119,42 @@ driver.manage () .window().maximize();
 
 //------------------------------------------- this all was to extract the window ids and to iterate and put in set
 //*******************************************
+//***initiate window handle and get parent page id
 //how to get the current window id/parent window id
 String parentWin = driver.getWindowHandle();
 System. out.println ("Parent Window - "+ parentWin) ;
 // it will be store in the set object and we got the parent window id
 
 //*******************************************
+//***click and opening another page to work on
 //now opened the another window or another page
 WebElement flights = driver.findElement (By.xpath("//a[contains(text(), 'FLIGHTS') ]") );
 flights.click();
 
 //*******************************************
+//***set all windows ids, in set to iterate/retrive later
 //setting SET data for all the window IDs to get, it will have all window IDS
 // how to get all the window ids
 Set<String> set = driver.getWindowHandles ();
 
 //*******************************************
+//*** Intiate iterate/retrive data
 // inside set we have all the the window ids, iterator help in retriveing the data from util pakage, it.next (); helps to get next data in set
 // how to retrieve each window id from a set -- > iterator interface , we intiate this method set extend iterator 
 Iterator it = set.iterator () ;
 
 //*******************************************
+//***iterate/retrive first window id
 //now to retrieve each data- it.next () ; is used- first it will retrive parent 
 String parentWindowId = it.next () ;
 
 //*******************************************
+//***iterate/retrive next window id
 // for next data, then will for child 
 string childWindowId= it.next () ;
 
 //*******************************************
+//***check if there is more data available in set to iterate/retrive 
 // to check if it has more windows ids, here it will go and tell false or true if more is there
 boolean status = it.hasNext () ;
 System. out.println ("Do we have any ids still = "+ status);
@@ -146,6 +162,7 @@ System. out.println ("Do we have any ids still = "+ status);
 //------------------------------------------- this all was to extract the window ids and to iterate and put in set
 
 //*******************************************
+//***now switch from one window to another
 // now we will shift to child window or any window with window ids
 // shift the focus of Selenium to the child window
 driver.switchTo().window(childWindowId);
@@ -160,6 +177,7 @@ System. out.println(title);
 driver.close();
 
 //------------------------------------------- once you close now you can again use driver .switch operation to go to the window you want and 
+//***now switch from one window to another, going back to parent, with its window ID
 //check url to check where you are
 //selenium now lost its focus - now switch your focus again to any desired window
 driver.switchTo().window (parentWindowId);
