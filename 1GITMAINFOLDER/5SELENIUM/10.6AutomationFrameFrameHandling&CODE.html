@@ -1,0 +1,110 @@
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO CHECK IF SITE HAVE IFRAMES
+
+**************************************------------------------------------------<br></P><p><p></p>
+Switch to is used to go to //frame
+remember in iframe Xapath is used to perform function on <element>
+But main is switch to in the we use FRAME NAME that is displaying on UI to switch to frame, aslo name is will show in code like name =""
+ans use frame in class by name or id or as webelement target locator( when usind something else in xpath than name)
+
+
+********************
+
+>> RIGHT CLICK ON SITE- it will give option view frame source 
+
+>> IN DEV TOOL- If we go to the developer tooldo control f and run //iframe
+you will see total number of frames
+
+>> INSIDE IFRAME TAG- one document will be there 
+
+>> we need two things one frame name second frame xpath 
+ -- to find frame name & xpath we will use text function
+    //a[text() = 'name of the frame']
+
+     @attribute function
+    //a[@href,'alert.html']
+
+    and operation
+    //a[@href,'alert.html'] and @title= 'interface.selinum'
+
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+STEP IN CODE
+**************************************------------------------------------------<br></P><p><p></p>
+-- foirst open site where frames as we open the web page
+
+-- we will first change focus with switch to iframe 
+driver.switchTo () .frame ("packageListFrame");
+
+-- then we will use full x path with click methood to click the iframe
+driver. findElement (By.xpath("//a[text () = 'org.openqa.selenium']")) .click();
+
+-- come back to parent html document, out of all frame
+driver.switch To().defaultContent();
+
+-- to check if frame displayed or not
+boolean status = packageListFrame. isDisplayed () ;
+System. out.println (status) ;
+// boolean status = FRAMENAME. isDisplayed () ;( here we have to place frame neame like Pakageframe )
+
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS
+**************************************------------------------------------------<br></P><p><p></p>
+package WindowHandling;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium. chrome.ChromeDriver;
+
+public class FrameHandling {
+
+public static void main (String[] args) {
+
+// setup the chromedriver file
+System. setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\Driver\\chrom
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+// launch the browser
+WebDriver driver = new ChromeDriver ();
+
+//login to the site
+driver.get ("https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/pack.com)
+
+//maximise the window
+driver.manage () .window() .maximize ();
+
+// ------------------------------------
+// how to shift focus from 1 sheet of Html to another
+driver.switchTo () .frame ("packageListFrame");
+
+// with the xpath of the frame , also perform click operation, click operation can be done seperate as well
+driver. findElement (By.xpath("//a[text () = 'org.openqa.selenium']")) .click();
+
+//come back to parent html document
+driver.switch To().defaultContent();
+// ------------------------------------
+// now switch to any new window once again, first was package list frame anow package frame // frame by name or id
+driver.switchTo().frame ("packageFrame");
+
+//now find path for any element under this fram and perform click on anything under this frame
+driver. findElement (By. xpath ("//a[@href='Alert.html' and @title='interface in org. openqa. seleniu
+
+//come back to parent html document
+driver.switch To().defaultContent();
+
+// ------------------------------------
+// switch to another class Frame- by target locator
+driver.switchTo () .frame(classFrame);
+
+WebElement interfaceText = driver. findElement (By. xpath("//h2[@title='Interface Alert' ] ") ) ;
+
+boolean status = interfaceText. isDisplayed () ;
+System. out.println (status) ;
+}
+}

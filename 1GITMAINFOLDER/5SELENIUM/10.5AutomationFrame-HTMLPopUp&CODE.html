@@ -1,0 +1,62 @@
+**************************************------------------------------------------<br></P><p><p></p>
+ADERTISEMENT POP UP
+- it will be html pop up 
+**************************************------------------------------------------<br></P><p><p></p>
+pop up suddenly come on the page we gi, we have to perform click operation and close
+if pop up is there then X element will be There
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+STEP IN CODE
+**************************************------------------------------------------<br></P><p><p></p>
+We find xpath element for cross element to close the pop up
+then we see if it display or not
+then we perform click operation to close
+
+>> WebElement cross = driver.findElement (By. xpath ("//button [text () = 'X'] ") );
+>> if (cross.isDisplayed () ) {
+>> cross.click () ;
+>> System. out.println ("HTML popup was dispalyed, hence cancelled");
+
+**************************************------------------------------------------<br></P><p><p></p>
+CLASS CODE
+**************************************------------------------------------------<br></P><p><p></p>
+
+package WindowHandling;
+
+import org.openqa.selenium.By;
+
+public class HTMLPopup {
+
+public static void main (String[] args) {
+
+// setup the chromedriver file
+System. setProperty("webdriver. chrome. driver", System. getProperty("user.dir") + "\Driver\\chrom
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+// launch the browser
+WebDriver driver = new ChromeDriver ();
+
+driver.get ("https://flipkart.com");
+
+driver.manage () .window () .maximize();
+
+// for X find xpath
+WebElement cross = driver.findElement (By. xpath ("//button [text () = 'X'] ") );
+
+// then see if this x element displayed
+if (cross.isDisplayed () ) {
+
+// then perform click operation to close
+cross.click () ;
+
+// then print we closed 
+System. out.println ("HTML popup was dispalyed, hence cancelled");
+
+
+
+}
+
+}
+
+}

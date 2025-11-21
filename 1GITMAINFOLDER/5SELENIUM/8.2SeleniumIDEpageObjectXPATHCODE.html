@@ -1,0 +1,76 @@
+**************************************------------------------------------------<br></P><p><p></p>
+XPATH TYPES
+**************************************------------------------------------------<br></P><p><p></p>
+Absolute- longeest path
+Relative- Shortest path- identifying element with its unique attribute, its short and crisp to the point path-3 functions
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+IN JAVA
+here xpath should always been in single quote -paste xpath inside the " " the double quote only,
+xpath from tag to big square bracket
+**************************************------------------------------------------<br></P><p><p></p>
+driver. findElement (By. xpath ("//a[contains (@data-csa-c-content-id,'help' ) ] ") );
+here xpath should always been in single quote 
+
+more eg: 
+driver. findElement (By. xpath ("//a [text()='mobile'] ") );
+
+driver. findElement (By. xpath ("//html tag [contains (text (),'value/visible text/paritial expectedvalue')]  ") );
+
+driver. findElement (By. xpath ("//html tag [contains (@atribute,'attirbute value')]   ") );
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+XPATH WITH EXAMPLES(data is always case sensetive)
+try to find unique value element should come 1 when you pick
+in code we always write in single quote, but while looking for element we can add double quote as well
+***************================*********************
+**************************************------------------------------------------<br></P><p><p></p>
+>> text ()
+//html tag [text ()='value/visible text']
+eg: //a [text()='mobile']
+
+>> contains () WITH VISBILE TEXT (partial expected value is possible)
+//html tag [contains (text (),'value/visible text/expectedvalue')] 
+eg: //a[contains(text(),'mobile')]
+ only it has contain word and comma after text rather than equal
+
+>> contains () WITH ATTRIBUTE
+ //html tag [contains (@atribute,'attirbute value')] 
+eg: //a [contains(@id,'mobile']
+//a[contains(@class,'nav-a')]
+only at place of text () is @attribute, is used
+
+
+>> Starts-with () = //htmltag [starts-with(@attribute,'value')]
+eg: //a[starts-with(@class,'nav-a')]
+in this only contain is replace with starts-with
+
+>> ATTRIBUTE & ELEMENT ******
+//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
+//button[@type='submit']
+//a[@id= 'nav-ops-dashboard'] 
+
+>> CHAINING & INDEXING CHILD PARENT
+
+in AND or it start with contact not anchor tag
+Two with and
+//htmltag [@attribute='attribute value'] and contains (text (),'value/visible text/expectedvalue')
+eg: //a[@class='id'] and contains(text(),'mobile') 
+
+Two with OR
+eg: //a[@class='id'] Or contains(text(),'mobile') 
+
+just put TWO QUERIES TOGETHER without space
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+//select[@class='month']//a[contains(text(),'mobile') ]
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+//select[@class='month']//a[contains(text(),'mobile') ]
+
+LI and OPTIONS
+//htmltag [@attribute='attribute value']/option[number]
+eg: //select[@class='id']/li[5]
+eg: //select[@aria-label='month']/option[1]

@@ -1,6 +1,15 @@
 CORNJOBS: will at 
 that time automatically run- with shell script, we can create job in linux, and execute at given point of time with cron job
 *****------------------------------------------<br></P><p><p></p>
+can also this info be put to Filevim <aws_resource_tracker class="sh">
+
+then redirect every command to resource tracker File
+
+# list s3 buckets
+echo "Print list of s3 buckets"
+aws s3 ls > resourceTracker
+
+*****------------------------------------------<br></P><p><p></p>
 PREQUITE:
 AWS CLI need to installed
 Linus use bash
@@ -11,11 +20,36 @@ access
 regin name
 script format {jason}
 *****------------------------------------------<br></P><p><p></p>
+EG: 
+
+ubuntu@ip-172-31-53-60 :~ $ aws configure
+AWS Access Key ID [ **
+AWS Secret Access Key [ **
+Default region name [us-east-1]:
+Default output format [json]:
+ubuntu@ip-172-31-53-60 :~ $
+clear
+*****------------------------------------------<br></P><p><p></p>
+
+To start script after connecting CLI
 #!/bin/sh   
 ###########Autor: abhishek
 Date: 11th-jan
 this script will report the 
+*****------------------------------------------<br></P><p><p></p>
+AWS CLI REFERENCE CAN BE USED IN GOOGLE FOR COMMANDS 
 
+*****------------------------------------------<br></P><p><p></p>
+WE WILL BE COVERING THIS
+# AWS S3
+# AWS EC2
+# AWS Lambda
+# AWS IAM Users
+*****------------------------------------------<br></P><p><p></p>
+
+*********AWS CLI REFERENCE CAN BE USED IN GOOGLE FOR COMMANDS **************
+echo- print the message
+*****------------------------------------------<br></P><p><p></p>
 # list s3 buckets
 echo "Print list of s3 buckets"
 aws s3 ls
@@ -52,7 +86,11 @@ aws ec2 describe-instances | jq '.Reservations[]. Instances[]. InstanceId'
 
 # list lambda
 echo "Print list of lambda functions"
-aws lambda list-functions >> resourceTracker:q!
+aws lambda list-functions 
+>> resourceTracker:q!
+
+#to list user
+list-user
 *****------------------------------------------<br></P><p><p></p>
 Here in command line run first query to run File= $ ./aws_resource_tracker.sh
 
@@ -67,3 +105,4 @@ Print list of ec2 buckets
 + aws ec2 describe-instances
 
 ].InstanceId'
+

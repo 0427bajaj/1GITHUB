@@ -1,0 +1,86 @@
+what you know about shell script- ls, find, top,copycp, mkdir, touch, vim, grep, 
+-- create a file= touch first-shell-script.sh
+ls- to list-functionsmkdir- to make directory
+echo- to print
+top- to see disk Space
+=================================
+Print log- with curl i can open the file and bring and check in that log file 
+what i want ot find with grep and pipe, pipe will go into same file and grep the word i wrote
+ curl , pipe annd grep
+how to retrieve log
+curl google class="com" | grep Herf  ( to see only herf)
+curl followed url of file | grep trace
+=================================
+Print number divisble by 33 and 5 not by 15
+>divisible by 2
+>divisible by3
+>dicvisible by 5
+>not divisible by 15
+!/bin/bash
+author etc
+
+# divisible by 3 , divisible by 5 , not 3*5=15
+
+if ([ 'expr $i % 3' == 0 ] || [ 'expr $i % 5' == 0 ]) && [ 'expr $i % 15' != 0
+then
+
+echo $i
+fi;
+done
+=================================
+count the s in mississipi
+make (man)
+
+#!/bin/bash
+
+x=mississipi
+
+grep -o "s" <<< "$x" | wc -L
+
+in this we send s to $X then with wc- l we read lines
+
+=================================
+hardlink to create file we can copy that and use over and over- it create copy of file
+softlink- softlink refer to the main location of file, if we delete it will get deleted 
+
+open the file in read only mode vim is use to open file and -r mean ready only mode
+
+vim-r test .txt
+=================================
+What is break & continue
+its breaking execution and skipping and ignoring and continuing the forloop or LOOPS
+=================================
+
+What are some disadvantages of Shell scripting ?
+
+Shell scripting has the following disadvantages:
+
+. Errors are frequent and costly, and a single error can alter the command.
+. The execution speed is slow.
+. Bugs or inadequacies in the language's syntax or implementation.
+. Large, complex tasks aren't well suited to it.
+Contrary to other scripting languages, etc., it provides a minimal data structure.
+Every time a shell command is executed, a new process is launched.
+=================================
+LOOPS
+================================
+Is bash dynamic or statically typed and why ?
+
+x=5
+
+x="string"
+
+Var x string
+================================
+networking trouble shooting network to router- router to -ips- it shows all hop, trace path can aslo be used
+
+bash-5.2$ traceroute google. com
+traceroute to google.com (142.250.182.206), 64 hops max, 52 byte packets
+192.168.0.1 (192.168.0.1) 2.219 ms 1.852 ms 2.272 ms
+================================
+sort of the name of File
+sort command
+================================
+logrotate(gzip,zip )
+
+we can use to store logs on our machine

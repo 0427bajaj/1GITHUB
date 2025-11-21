@@ -1,0 +1,143 @@
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+XPATH TYPES
+**************************************------------------------------------------<br></P><p><p></p>
+Absolute- longeest path
+Relative- Shortest path- identifying element with its unique attribute, its short and crisp to the point path-3 functions
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+IN JAVA
+here xpath should always been in single quote -paste xpath inside the " " the double quote only,
+xpath from tag to big square bracket
+**************************************------------------------------------------<br></P><p><p></p>
+driver. findElement (By. xpath ("//a[contains (@data-csa-c-content-id,'help' ) ] ") );
+here xpath should always been in single quote 
+
+more eg: 
+driver. findElement (By. xpath ("//a [text()='mobile'] ") );
+
+driver. findElement (By. xpath ("//html tag [contains (text (),'value/visible text/paritial expectedvalue')]  ") );
+
+driver. findElement (By. xpath ("//html tag [contains (@atribute,'attirbute value')]   ") );
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+XPATH WITH EXAMPLES(data is always case sensetive)
+try to find unique value element should come 1 when you pick
+in code we always write in single quote, but while looking for element we can add double quote as well
+***************================*********************
+**************************************------------------------------------------<br></P><p><p></p>
+>> text ()
+//html tag [text ()='value/visible text']
+eg: //a [text()='mobile']
+
+>> contains () WITH VISBILE TEXT (partial expected value is possible)
+//html tag [contains (text (),'value/visible text/expectedvalue')] 
+eg: //a[contains(text(),'mobile')]
+ only it has contain word and comma after text rather than equal
+
+>> contains () WITH ATTRIBUTE
+ //html tag [contains (@atribute,'attirbute value')] 
+eg: //a [contains(@id,'mobile']
+//a[contains(@class,'nav-a')]
+only at place of text () is @attribute, is used
+
+
+>> Starts-with () = //htmltag [starts-with(@attribute,'value')]
+eg: //a[starts-with(@class,'nav-a')]
+in this only contain is replace with starts-with
+
+>> ATTRIBUTE & ELEMENT ******
+//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
+//button[@type='submit']
+
+**************************************------------------------------------------<br></P><p><p></p>
+TEXT () FUNCTION
+- exact visible, in text we use equla to =
+**************************************------------------------------------------<br></P><p><p></p>
+1 text()= //html tag [text ()='value/visible text'] like //a [text()='mobile']
+>> text()= //html tag [text ()='value/visible text']
+=======( value shouuld be exact replica of visible text)rigid in nature)
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CONTAIN () FUNCTION
+- help us to find with partial visible text , when content is changing, text we use comma , it trim starting and end
+**************************************------------------------------------------<br></P><p><p></p>
+2 contains ()= /
+>> contains () WITH VISBILE TEXT= //html tag [contains (text (),'value/visible text/expectedvalue')] 
+eg://h2[contains(text(),'facebook helps')]
+
+//html tag [contains (text (),'value/visible text')] like //a [contains (text(),'mobile')]
+>> contains () WITH ATTRIBUTE= //html tag [contains (@atribute,'attirbute value')] 
+eg: //a[contains(@class,'mobile')]
+
+
+========trim the spaces- we can use part of the text that is visible on UI- help us to find with partial visible text, can remove from start and end
+=======(trim the places for the actual value before and after text, we do not provide Space --exact visible text)
+=======( it will ignore spaces before and after the text and then compare with expected value, and apritail expected value possible)
+=======is you see carefully you see in text function text ()='mobile' come in bracket and = turn into comma, and out side this bracket we put contain
+===******** if things goes on changing we can still locate
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TEXT () & CONTAIN () FUNCTION- COMPARIOSION
+**************************************------------------------------------------<br></P><p><p></p>
+Coomparision:
+>> text()= //html tag [text ()='value/visible text']
+>> contains () WITH VISBILE TEXT= //html tag [contains (text (),'value/visible text/expectedvalue')] 
+>> contains () WITH ATTRIBUTE= //html tag [contains (@atribute,'attirbute value')] 
+
+IN CONTAINS function= contains word is used in the starting of bracket 
+IN CONTAINS function = comma is used instead of equal to
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+STARTS WITH- 
+**************************************------------------------------------------<br></P><p><p></p>
+>>  Starts-with () = //htmltag [starts-with(@attribute,'value')]
+with intial string of attribute value, it can be done with contain function as well
+
+eg: //div[starts-with(@class, 'mobile')]
+//h2[starts-with(@class, 'mobile')]
+//a[starts-with(@href'https://www.hotel.irtc.com')]
+//a[starts-with(@id'mobile')]
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ATTRIBUTE AND ELEMENT
+**************************************------------------------------------------<br></P><p><p></p>//html tag [text ()='value/visible text']
+//htmltag [@attribute='attribute value']
+eg: //input[@type='text']
+//button[@type='submit']
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TWO FUNCTION TOGETHER- WITH AND/ OR--- and ---- CHAINING OF XPATHS(1st=2nd path)
+**************************************------------------------------------------<br></P><p><p></p>//html tag [text ()='value/visible text']
+//htmltag [@attribute='attribute value'] and contains (text (),'value/visible text/expectedvalue')
+eg: //a[@class='id'] and contains(text(),'mobile') 
+here both are true statements
+
+eg: //a[@class='id'] Or contains(text(),'mobile') 
+here any can be true statements
+
+CHAINING OF XPATHS 1path+2nd path
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+//select[@class='month']//a[contains(text(),'mobile') ]
+**************************************------------------------------------------<br></P><p><p></p>
+CHILD PARENT- INDEXING - METHOD CHAINING can be used too for indexing
+**************************************------------------------------------------<br></P><p><p></p>//html tag [text ()='value/visible text']
+//htmltag [@attribute='attribute value']/option[number]
+eg: //select[@class='id']/li[5]
+
+eg: //select[@aria-label='month']/option[1]
+
+WITH CONTAIN- METHOD CHAINING
+eg: //select[@aria-label='month']//a[contains(text(),'mobile') ]
+//select[@class='month']//a[contains(text(),'mobile') ]
