@@ -1,0 +1,55 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+MAIN TIME QUERIES
+**************************************------------------------------------------<br></P><p><p></p>
+where jcr.created_timestamp = now ()- interval 1 hour
+
+where created_timestamp >= '2024-12-07 00:00:01' and 
+created_timestamp <='2024-12-07 23:59:59'
+
+where cast(created_timestamp as date) = cast(now() as date)-interval 0 day
+
+WHERE created_timestamp > now() - INTERVAL 10 MINUTE
+AND created_timestamp < now() - INTERVAL 1 MINUTE
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ALL
+**************************************------------------------------------------<br></P><p><p></p>
+
+--select *from job_details 
+where created_timestamp >= '2024-02-12 00:00:01' and  created_timestamp <='2024-02-12 23:59:59' 
+
+Select *from ucchub.job_details 
+where cast (created_timestamp as date) = cast (now() as date) and campaign_id=2;
+
+select * from ucchub.job_details 
+where cast(created_timestamp as date) = cast(now() as date)-interval 0 day and campaign_id = 86;
+
+SELECT * from campaign_job_instance 
+where created_time >now()-interval 5 hour;
+
+
+
+select *from job_details jd 
+where created_timestamp >= '2024-12-07 00:00:01' and 
+created_timestamp <='2024-12-07 23:59:59'
+-- where cast (created_timestamp as date) = cast (now() as date)
+--  - interval 1 day 
+and campaign_id =78 
+
+
+
+SELECT job_status, count(*) AS status_count
+FROM ucchub.job_details jd
+WHERE created_timestamp > now() - INTERVAL 10 MINUTE
+AND created_timestamp < now() - INTERVAL 1 MINUTE
+GROUP BY job_status;
+
+----------------------
+
+and date(jcr.created_timestamp) >= concat((CURDATE() - interval 1 day), ' 04:00:00')
+and date(jcr.created_timestamp) < concat((CURDATE() - interval 0 day), ' 04:00:00')
+
+
