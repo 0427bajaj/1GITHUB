@@ -1,0 +1,95 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+CLOUD WATCH
+**************************************------------------------------------------<br></P><p><p></p>
+
+Login to aws
+Go to Cloud watch
+Then Log insight 
+select region
+go to browse log group
+use filter like prod ucc( enviornment+ application) and click log group  
+select time 
+add query and run query
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+MAIN QUERY
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+fields @timestamp, logMessage, env.containerNamespace
+| filter @message like /UCC_Service_PIA/ OR @message like /Exception in Deleting File to Source ; Exception in Creating SSH Client for host/
+| sort ts asc
+| limit 10000
+
+**************************************------------------------------------------<br></P><p><p></p>
+UNIQUE QUERY
+**************************************------------------------------------------<br></P><p><p></p>
+
+fields @timestamp, @log
+| filter @message like /WEN/ and @message like /74hAZ-ipNpo/
+| sort @timestamp desc
+| dedup @message
+| limit 10000
+
+**************************************------------------------------------------<br></P><p><p></p>
+COUNT QUERY/STAT
+**************************************------------------------------------------<br></P><p><p></p>
+fields @timestamp, @message, @logStream, @log
+| filter @message like /Exception/ or @message like /Error/
+| filter @message like /5000000555636/
+| filter (@message like /Exception/ or @message like /Error/) and @message like /out for OrderId /
+#| filter (@message like /5000000000662/ or @message like /5000000000663/)
+| sort @timestamp desc
+#| stats count() by bin(7d)
+| limit 10000
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+NOT IN, OR, AND QUERY
+**************************************------------------------------------------<br></P><p><p></p>
+fields @timestamp, @message, @logStream, @log
+| filter @message like /Exception/ or @message like /Error/
+| filter not (
+     @message like /Will secure any request with / or 
+      @message like /Error occurred size/ or 
+    @message like /Error esult size/
+)
+| sort @timestamp desc
+# | stats count() by bin(7d)
+| limit 10000
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+PARSE QUERY
+**************************************------------------------------------------<br></P><p><p></p>
+
+filter  @message like /number of records inserted/
+| parse logMessage '* executionTime: *, number of records inserted *' as type, executionTime, totalRecords
+| display @timestamp,type, totalRecords, executionTime, env.containerName
+#| filter type = 'Future Notification'
+#| sum(totalRecords)
+| sort totalRecords desc
+
+fields @timestamp, logLevel, logMessage
+| filter @message like /number of records inserted/ 
+# and logLevel = 'TRACE'
+| parse logMessage 'executionTime: *, number of records inserted *' as time, batchSize
+| display @timestamp, time, batchSize
+#| filter logLevel = "ERROR"
+#| stats sum(batchSize)
+| sort @timestamp desc
+| limit 1000
+
+**************************************------------------------------------------<br></P><p><p></p>
+TIME QUERY
+**************************************------------------------------------------<br></P><p><p></p>
+
+fields @timestamp, @message, @logStream, @log
+# | filter @message like /Exception/ or @message like /Error/
+# | filter @message like /Exception/ and @message like /Error/
+| filter @message like /Exception/| filter not (@message like /2025-07-31/ and @message like /2483144012/)
+| sort @timestamp desc
+| limit 10000
