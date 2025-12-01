@@ -1,5 +1,245 @@
 
+**************************************------------------------------------------<br></P><p><p></p>
+CREATE LOGIN ACCOUNT & INTIAL SET UP
+**************************************------------------------------------------<br></P><p><p></p>
+>> SIGN UP: Create github.com  account
+continue for free
 
+>>  download git & visual studio <br> <br>
+<codevisualstudio.com>( visual studio) <br>
+        
+>> git bash download
+<git-scm.com></git-scm.com> (download git) <br>
+select on desktop ( it will install git bash) <br>
+
+>> To check git bash version on achine through command line
+ git --version to check set up <br>
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CREATE REPOSITORY
+**************************************------------------------------------------<br></P><p><p></p>
+click on repository or + sign to create , click on New
+Give Name
+Description
+Public
+Readme me- tell the info about repo
+hit create
+>> to check click on profile and click repository
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+DELETE REPOSITORY
+**************************************------------------------------------------<br></P><p><p></p>
+click on repository you wan to delete, get into this repository
+click setting
+then scroll down to danger zone
+click on delete repository and follow the instruction pop on screen and delete
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+UPDATE ONLINE & COMMIT- CHANGE ADD & COMMIT - ON WEB
+- two step process to add change to git, take screen shot & save to git
+**************************************------------------------------------------<br></P><p><p></p>
+>> from web/online 
+add change to file
+in file when we make chang, right side commit change button will be active, click  add message and commir change
+click on commit changes ( to add screen shot), add message  and Commit
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CONFIGURATION GIT- seeting up name and email for changes
+**************************************------------------------------------------<br></P><p><p></p>
+>>local or global: Global will change only with that email 
+
+git config -- global user.name "My Name" ( to add name as global configuation)
+
+git config -- global user.email "someone@email.com" ( to add eamil as global configuation)
+
+git config -- list ( to check what we set as credential)
+-------------
+eg: shradhakhapra@Shradhas-MacBook-Air ~ % git config -- global user.name "Student Ap
+naCollege"
+shradhakhapra@Shradhas-MacBook-Air ~ % git config -- global user.email "student@a]
+pnacollege.in"
+shradhakhapra@Shradhas-MacBook-Air ~ % git config -- list
+credential.helper=osxkeychain
+user.name=Student ApnaCollege
+user.email=student@apnacollege.inI
+shradhakhapra@Shradhas-MacBook-Air ~ %
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FIRST STEP FOR VISUAL CODE
+**************************************------------------------------------------<br></P><p><p></p>
+>> Create a folder on the desktop or anywhere in local machine/laptop/PC that you are using
+and go to visual code and Open
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FOLDER FROM ONLINE TO LOCAL
+**************************************------------------------------------------<br></P><p><p></p>
+CLONE STATUS (RUN TERMINAL IN VS code )- git clone link (by going in the flder you want to clone)
+
+>> GIT CLONE- TO BRING FOLDER FROM ONLINE TO LOCAL
+first go to the repository on line and click on code and copy https link from online folder
+RUN- git clone folder link 
+// with this it will come to local
+
+--for updated one use - git pull to bring to local from online
+
+--to send change from local will be add, commit and push as given in 'ADD-COMMIT-PUSH ( 3steps)'
+
+>> TO GO IN ANY FOLDER= cd
+
+>> TO CLEAR TERMINAL= clear
+
+>> TO LIST ALL FILES= ls
+
+>> TO SEE HIDDEN FILES= ls -a
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO GET STATUS FOR FIES
+**************************************------------------------------------------<br></P><p><p></p>
+RUN= git status
+untracked- git soes not know the file need to be added, its like new
+modified- some change is there
+staged- it added  but did not Commit, file is ready to commit, before Commit
+unmodified- unchanged, after commit 
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ADD-COMMIT-PUSH ( 3steps)
+**************************************------------------------------------------<br></P><p><p></p>
+>>ADD: new or modified goes to staged area then get commit
+RUN= git add  file name (for single file) 
+RUN= git add . (to run all change)
+
+>>COMMIT: pushing the chang- its a record for change
+RUN= git commit -m "message for change track" // it will save to local 
+
+>> RUN PUSH TO PUT THIS ONLINE = git push origin main
+main is branch and origin is remore repo
+origin is remote repo from where we cloned 
+
+**************************************------------------------------------------<br></P><p><p></p>
+ADD & COMMIT- add, commit, push
+
+git add .  ( to add all file)- Unmodified untrackked in git staging area, before commit
+git add file name  ( to add particular file)- Unmodified untrackked in git staging area, before commit
+
+git commit -m "message" - it commit the change, message you can dd to record the change, its basically record of change
+
+git push origin main - to push code from local to remote repository  first time it will ask permission to allow visual studio code)
+
+origin mean from where we clone, main is branch 
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+GIT INIT COMMAND- ( LS, CD, CD.. MKDIR,LS-a, & git status)
+**************************************------------------------------------------<br></P><p><p></p>
+ if we create any new folder in VS CODE/ LOCAL
+it will make local folder/repo a git folder 
+.git is git file 
+
+>> RUN= cd go where want to create folder
+>> RUN- mkdir nameOFNewFolder //   or create in PC directly
+>> RUN= ls-a ( it should have git file otherwise repo will not work)
+>> RUN= git init // this will make local folder git folder/ repo
+>> git satatus, and to check now if it shows git file  ls -a
+>> git add, git commit -m"message" 
+>> CREATE NEW REPOSITORY ONLINE and DO NOT USE READ ME as read me need to bring to local so do not do 
+>> RUN=  git remote add origin linkofonline repo // this will set the path where code will go to remote repo
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FOLDER FROM LOCAL TO REMOTE
+**************************************------------------------------------------<br></P><p><p></p>
+Create a folder in local
+now go to the online and create repsository without readme( beacuse if create readme then we neeed to clone to local )
+
+git remote add origin copypastelinkOfRepository ( setting up new origin)
+git remote -v (verifying the respositry)
+git branch (to check branch)
+git branch -M main (to rename branch)
+git push origin main
+
+>> to use git push as short code in future, -u mean setting upstream
+git push -u origin main
+next time use only-   git push
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+BRANCH COMMANDS
+**************************************------------------------------------------<br></P><p><p></p>
+git branch ( to check on which branch we are)
+git branch -M main ( to rename branch)
+git check out AnotherBranchNameToGo ( to navigate to branch, it will checkout the branch and take to new branch)
+git checkout -b newbranchName (to create new brranch)
+git branch -d branchname (to delete branch)( we need to be out of the branch that we need to delete, mean we need to be on another branch to delete)
+
+git diff (to see or compare to branches)
+git merge branchNAme ( it will merge to branches)
+
+THROUGH ONLINE BY CREATING <PR> pull request
+PR will be review by manger then will be merged by manager, can be created new PR & merge
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FETCH FROM REMOTE TO LOCAL & MATCH
+**************************************------------------------------------------<br></P><p><p></p>
+git pull origin main ( to bring change to local)
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+RESOLVING MERGE CONFLICT
+**************************************------------------------------------------<br></P><p><p></p>
+git merge branch name with which you merging 
+Removing lines those came mean we need those
+check with git diff ( any difference)
+ Resolving merge confilct: it will show in the code  we can accept tor decide what we need, <br>
+ we remove the lines those came automatically and save code and then add and commit <br>
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+UNDOING CHANGES 
+**************************************------------------------------------------<br></P><p><p></p>
+git reset FILENAME ( to change the file)
+git reset (for many changes to recvert back)
+git reset HEAD~1 ( head is the change from now to tilt back to 1, 2, or 3 changes back)
+git log- we can check with git logs the changes, to check history of changes 
+git reset Hashcode ----(we can use aslo commit hash code , it cn take to particular change)
+git reset hard Hashcode ----(it will change in VS CODE AS WELL-we can use aslo commit hash code , it cn take to particular change)
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+FORK - ROUGH COPY FOR YOURSELF
+**************************************------------------------------------------<br></P><p><p></p>
+BRING OTHER PEOPLE STUFF 
+we go on repository and click on fork option
+name the respository, copy any branch or whole project 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+OLD NOTES
+**************************************------------------------------------------<br></P><p><p></p>
+CONFIGURATION GIT
+- two step process to add change to git, take screen shot & save to git
+**************************************------------------------------------------<br></P><p><p></p>
 
 FINAL VERSION : LEARN GIT *************<br>
 Git Repo>> clone >> changes >> add >> commot >> Push <br>
@@ -82,14 +322,6 @@ Git Pull
        and hit enter <br>
 ---------------------------------------------------------------------------------------------------------<br></P><p><p></p><br>
 
-        INSTALL & SETUP------------------------------------------<br></P><p><p></p> <br>
-        download git & visual studio <br> <br>
-        <codevisualstudio.com>( visual studio) <br>
-        <git-scm.com></git-scm.com> (download git) <br>
-        select on desktop ( it will install git bash) <br>
-        git --version to check set up <br>
-
-        <br>
         ------------------To set up user name ------------------------<br></P><p><p></p><br>
         ~ this shows we are in root directory <br>
        config change- set user name ans email <br>
