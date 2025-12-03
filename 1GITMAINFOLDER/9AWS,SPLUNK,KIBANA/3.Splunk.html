@@ -1,0 +1,102 @@
+**************************************------------------------------------------<br></P><p><p></p>
+>> Link: 
+https://splunk.chartercom.com/en-US/app/search/search?earliest=1727323200&latest=1727755200&q=search%20index%3Dapp_cms%20%221322018164%22&display.page.search.mode=smart&dispatch.sample_ratio=1&sid=1731425395.1259502_C36DB9E1-16E5-4B80-8387-593E8437A062
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> Index: 
+
+index=app_cms PROD
+
+Splunk treasure 
+In Splunk Format : "transactionID":"PROD-1027648459"
+
+index=app_cms PROD "UCC_DAO:Request" | rex "transactionID\"\:\"(?<transactionId>.*)\"" | table transactionId
+
+\ has been used before special character in rex
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> Main Query
+(To find main Issue/Exception for UCC)
+index=app_cms PROD
+("UccConnectionTimeoutException" OR "SocketTimeoutException" OR "IO Exception while connecting to UCC "OR "Connect timeout 5 seconds")
+| timechart span=10m count
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> To Find Transaction From Splunk
+index=app_cms PROD "UCC_DAO:Request"
+| rex "transactionID\"\:\"(?<transactionId>.*)\""
+| table transactionId
+
+OR
+
+index=app_cms PROD "UCC_DAO:Request" "UCC_APPT_TechArrived"
+| rex field=_raw "\"transactionID\"\:\"(?P<transactionID>[^\"]+)\""
+| rex field=_raw "\"name\":\"(?P<templatename>[^\"]+)\""
+| table templatename,transactionID
+| stats count BY templatename, transactionID
+
+in splunk transaction id is like= "transactionID":"bb0457a5de39"}
+| table transactionId= this will put info from query to table 
+template name is lik= "template":{"name":"Spectrum_UIM_Create_User_Verify","parameters":{"verify_code":"763548"},
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> Main DB Query
+( To verify transaction are making to UCC and Comms are getting delivered)
+select * from ucchub.job_process_details where job_id in
+(select job_id from ucchub.job_additional_details jad
+where transaction_id in ('1757029725866422081001192242078663644192cbfd8'));
+
+
+>> To find all templates and number flowing in particular time
+index=app_cms PROD "UCC_DAO:Request"
+| rex field=_raw "\"transactionID\"\:\"(?P<transactionID>[^\"]+)\""
+| rex field=_raw "\"name\":\"(?P<templatename>[^\"]+)\""
+| table templatename,transactionID
+| stats count BY templatename, transactionID
+
+Note: You can also import into the excel and run aggregate function to check total communication flow to UCC at particular time
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> To check template name and transaction Ids together 
+index=app_cms PROD "UCC_DAO:Request"
+| rex field=_raw "\"transactionID\"\:\"(?P<transactionID>[^\"]+)\""
+| rex field=_raw "\"name\":\"(?P<templatename>[^\"]+)\""
+| table templatename,transactionID
+| stats count BY templatename, transactionID
+
+"transactionID":"PROD-0413925792"}
+"template":{"name":"Spectrum_UIM_Create_User_Verify","parameters":
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> Pull Transaction IDs from "CMS_Single_API_SocketTimeoutException" or "UCC Hub Request failed" Alert
+
+Socket Timeout Exception
+
+(index=app_cms OR cms) (host="*dsutp*" OR host=vm0p*) (source="*cms-single-service*" OR source="/apps/cms/cms-single-8130/logs/customer-messaging-service.log") "*SocketTimeoutException*"
+| rex "\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[(?P<TransactionId2>[^\]]+)\]\s"
+| rex "\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[(?P<TransactionId1>[^\]]+)\]\s"
+| eval TransactionId=case((index="app_cms"),TransactionId1,(index="cms"),TransactionId2)
+| table TransactionId
+| rename TransactionId as search
+| format
+
+OR
+
+UCC Hub Request failed
+
+(index=app_cms OR cms) (host="*dsutp*" OR host=vm0p*) (source="*cms-single-service*" OR source="/apps/cms/cms-single-8130/logs/customer-messaging-service.log") "*UCC Hub request failed*"
+| rex "\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[(?P<TransactionId2>[^\]]+)\]\s"
+| rex "\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[([^\]]+)\]\s\[(?P<TransactionId1>[^\]]+)\]\s"
+| eval TransactionId=case((index="app_cms"),TransactionId1,(index="cms"),TransactionId2)
+| table TransactionId
+| rename TransactionId as search
+| format
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+>> 

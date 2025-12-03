@@ -1,0 +1,67 @@
+**************************************------------------------------------------<br></P><p><p></p>
+ACTIONS CLASS- MOUSE MOMENT ACTIVITIES
+**************************************------------------------------------------<br></P><p><p></p>
+moveToElement ();
+SendKeys();
+ContextClick();
+Doubleclick();
+Perform();
+build();
+clickAndhold();
+Draganddrop();
+Release();
+
+
+MAIN CODE: 
+
+// Element (SALES) which needs to be dragged
+WebElement source = driver
+.findElement (By. xpath("//a[@class='button button-orange' and contains (text (), 'SALES' ) ] ") ) ;
+
+WebElement destination = driver. findElement (By. xpath("//ol[@id='loan']/li"));
+
+//Create actions class Object
+Actions act = new Actions (driver);
+Thread. sleep(2000);|
+act.dragAndDrop(source, destination) .perform();
+
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS
+**************************************------------------------------------------<br></P><p><p></p>
+import java. time. Duration;
+import org.openqa.selenium.WebDriver;
+import org. openqa. selenium. chrome. ChromeDriver;
+import org. openqa. selenium. interactions.Action;
+
+public class ActionsClass {
+
+public static void main (String [] args) throws InterruptedException {
+
+System. setProperty("webdriver. chrome.driver", System.getProperty("user.dir") + "Driver\chromedriver.exe");
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+WebDriver driver = new ChromeDriver();
+
+// implicitly wait statement
+driver.manage () .timeouts ().implicitlyWait (Duration.ofSeconds(20));
+
+driver.get ("https://demo.guru99.com/test/drag_drop.html");
+
+driver.manage() .window().maximize ();
+
+// Element (SALES) which needs to be dragged
+WebElement source = driver
+.findElement (By. xpath("//a[@class='button button-orange' and contains (text (), 'SALES' ) ] ") ) ;
+
+WebElement destination = driver. findElement (By. xpath("//ol[@id='loan']/li"));
+
+//Create actions class Object
+Actions act = new Actions (driver);
+Thread. sleep(2000);// this is 2 sec wait
+act.dragAndDrop(source, destination) .perform();
+
+}
+}
