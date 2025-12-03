@@ -1,0 +1,14 @@
+**************************************------------------------------------------<br></P><p><p></p>
+HAVING
+**************************************------------------------------------------<br></P><p><p></p>
+
+Having to be used with group by and group with count and having
+Whatever will be grouped together that will show in count  and we can filter count 
+
+
+
+select source_type, validation_elements ,  count(*) 
+FROM campaign_details 
+group by validation_elements 
+having count(*)>15
+order by count(*)asc
