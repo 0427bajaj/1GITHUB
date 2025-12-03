@@ -1,0 +1,218 @@
+**************************************------------------------------------------<br></P><p><p></p>
+FILE HANDLING- we create code and keep at central location and reuse it,XSSFWorkbook  is the class
+**************************************------------------------------------------<br></P><p><p></p>
+
+Create a folder nder the project
+then paste the XML file with headers and data, to this places
+Remmember java read first cell from 0 in (0.1,2,3)
+cell is where row and columns are intersecting
+in the properties of the file can copy path of the file
+.. can be use from the folder name like D\\..folder name- upto work place can reduce and use two dot
+
+**************************************------------------------------------------<br></P><p><p></p>
+DEPENDECIES
+**************************************------------------------------------------<br></P><p><p></p>
+add theses two
+ -- ADD  APACHE POI COMMON FROM MAVEN REPOSITORY
+ -- ADD  APACHE POI based on opc and OOML COMMON FROM MAVEN REPOSITORY
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+REAL CODE - to read data from excel sheet,for 2 sheet, we will write sheet2 in code
+**************************************------------------------------------------<br></P><p><p></p>
+import java.io.File;
+import java.io.FileInputStream;
+
+import org. apache.poi. xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org. apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class FileHandling {
+
+public static void getExcelData() throws Exception {
+
+File file = new File(" .. February25thAutomation\\TestData\TestData.xlsx");
+// we added here .. till workspace removed the link 
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable modp.
+XSSFWorkbook workbook = new XSSFWorkbook (fis);
+
+XSSFSheet sheet = workbook.getSheet ("Sheet1");
+
+XSSFRow row = sheet.getRow(1);
+
+url = row.getCell (2) .getStringCellValue();
+
+username = row.getCell (3) .getStringCellValue ();
+
+password = row.getCell(4) .getStringCellValue();
+
+System. out.println ("Url = " + url) ;
+System. out.println ("UserName = " + username) ;
+System. out.println ("Password = " + password);
+
+}
+
+public static void main (String[] args) throws Exception {
+getExcelData();
+// this is main method and the rest of the method is declared at global level
+}
+}
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS- BY ADDING TO MAIN METHOD
+**************************************------------------------------------------<br></P><p><p></p>
+
+import java.io. File;
+import java.io.FileInputStream;
+import java.time. Duration;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org. apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org. openqa.selenium.chrome.ChromeDriver;
+
+public class FileHandling {
+
+static String url;
+static String username;
+static String password;
+
+public static void getExcelData() throws Exception {
+
+File file = new File(" .. February25thAutomation\\TestData\TestData.xlsx");
+// we added here .. till workspace removed the link 
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable modp.
+XSSFWorkbook workbook = new XSSFWorkbook (fis);
+
+XSSFSheet sheet = workbook.getSheet ("Sheet1");
+
+XSSFRow row = sheet.getRow(1);
+
+url = row.getCell (2) .getStringCellValue();
+
+username = row.getCell (3) .getStringCellValue ();
+
+password = row.getCell(4) .getStringCellValue();
+
+System. out.println ("Url = " + url) ;
+System. out.println ("UserName = " + username) ;
+System. out.println ("Password = " + password);
+
+}
+
+public static void main (String[] args) throws Exception {
+getExcelData();
+
+//***************** from here can also take to the global level 
+}
+public static void main (String [] args) throws Exception {
+getExcelData() ;
+
+System. setProperty("webdriver.chrome.driver", System. getProperty("user.dir") + "\Drive
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+WebDriver driver = new ChromeDriver () ;
+
+// implicitly wait statement
+driver.manage () .timeouts().implicitlyWait (Duration.ofSeconds(20));
+
+driver.get(url);
+
+driver.manage () .window() .maximize ();
+
+WebElement email = driver.findElement (By.id("email"));
+email.clear();
+email.sendKeys (username) ;
+
+pass = driver.findElement (By.id("pass"));
+
+pass.sendKeys (password) ;
+
+}}
+
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS- BY PUTTING EVERYTHING AT GLOBAL LEVEL
+**************************************------------------------------------------<br></P><p><p></p>
+import java.io. File;
+import java.io.FileInputStream;
+import java.time. Duration;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org. apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org. openqa.selenium.chrome.ChromeDriver;
+
+public class FileHandling {
+
+static String url;
+static String username;
+static String password;
+
+public static void getExcelData() throws Exception {
+
+File file = new File(" .. February25thAutomation\\TestData\TestData.xlsx");
+// we added here .. till workspace removed the link 
+//File file = new File("D:\\Eclipse Workspace\ \February25thAutomation\\TestData\\TetData.xlsx")
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable modp.
+XSSFWorkbook workbook = new XSSFWorkbook (fis);
+
+XSSFSheet sheet = workbook.getSheet ("Sheet1");
+
+XSSFRow row = sheet.getRow(1);
+
+url = row.getCell (2) .getStringCellValue();
+
+username = row.getCell (3) .getStringCellValue ();
+
+password = row.getCell(4) .getStringCellValue();
+// here we gave a word to each cell value to intialise 
+
+System. out.println ("Url = " + url) ;
+System. out.println ("UserName = " + username) ;
+System. out.println ("Password = " + password);
+
+
+//***************** from here can also take to the inside main method or stay at global method
+
+
+System. setProperty("webdriver.chrome.driver", System. getProperty("user.dir") + "\Driver
+System. setProperty("webdriver.http.factory", "jdk-http-client");
+
+WebDriver driver = new ChromeDriver () ;
+
+// implicitly wait statement
+driver.manage () .timeouts().implicitlyWait (Duration.ofSeconds(20));
+
+driver.get(url);
+
+driver.manage () .window() .maximize ();
+
+WebElement email = driver.findElement (By.id("email"));
+email.clear();
+email.sendKeys (username) ;
+
+pass = driver.findElement (By.id("pass"));
+
+pass.sendKeys (password) ;
+
+
+
+}
+
+public static void main (String[] args) throws Exception {
+getExcelData();
+
+
+
+}}
