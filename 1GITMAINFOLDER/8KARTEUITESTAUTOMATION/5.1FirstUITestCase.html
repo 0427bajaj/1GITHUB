@@ -1,0 +1,66 @@
+**************************************------------------------------------------<br></P><p><p></p>
+SETUP ECLIPSE- it Given and and and  when then )
+
+make sure you have cucumebr pluggin and all files will hav .feature at the end
+under src/test/java created package then feature file 
+
+**************************************------------------------------------------<br></P><p><p></p>
+Feature: Login test
+This is login test
+
+Scenario: Login with valid login credentials
+Given driver 'https://www.saucedemo.com/
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TO SEE REPORTS
+**************************************------------------------------------------<br></P><p><p></p>
+Kartate Report> res> report.html
+Karate-Summary.html 
+it will give screen shot of the result
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+LOCATORS - xath, partial text, name, id, like selenium
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+AND TO INPUT ( to input , input method is used)locator , value we want to enter 
+**************************************------------------------------------------<br></P><p><p></p>
+Feature: Login test
+This is login test
+
+Scenario: Login with valid login credentials
+Given driver 'https://www.saucedemo.com/'
+And input('//*[@id="user-name"]','standard_user')
+And input('//*[@id="Password]]','Now@1')
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+WHEN(click) - remember single quote on xpath outside "double  quote"
+**************************************------------------------------------------<br></P><p><p></p>
+
+Feature: Login test
+This is login test
+
+Scenario: Login with valid login credentials
+Given driver 'https://www.saucedemo.com/'
+And input("//*[@id='user-name']","standard_user")
+And input("//*[@id='password']","secret_sauce")
+When click("//*[@id='login-button']")
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+VERIFY TITLE OF THE PAGE- to see the cose can go to karte page look in find search title , it will give code 
+**************************************------------------------------------------<br></P><p><p></p>
+
+Feature: Login test
+This is login test
+
+Scenario: Login with valid login credentials
+Given driver 'https://www.saucedemo.com/'
+And input("//*[@id='user-name']","standard_user")
+And input("//*[@id='password']","secret_sauce")
+When click("//*[@id='login-button']")
+Then match driver.title ='Swag Labs'
