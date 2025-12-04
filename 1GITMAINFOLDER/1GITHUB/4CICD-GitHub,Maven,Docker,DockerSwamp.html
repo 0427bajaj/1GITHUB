@@ -1,0 +1,52 @@
+**************************************------------------------------------------<br></P><p><p></p>
+CICID PIPELINE- deploy-build-test-release/deploy- automation of this process called cicd
+**************************************------------------------------------------<br></P><p><p></p>
+build+test= CI ( continous integration)
+release(deploy)= CD  (continous delivery to user)
+staging deployment-CD ( continousl deployment) manual step to approve then it will go to prod (continous deployment)
+yml files- will have code to test
+
+DEPLOYMENT VS DEPLOY
+Deployment - mostly in sensetive data like bank
+build - test- deploy staging- e2e test- manual approval- deploy in prod
+Delivery 
+build - test- deploy staging- e2e test- deploy in prod
+
+
+DEPLOYMENT STRATEGY:
+blue green dployment- keep two version- and if anything goes wrong on new we go back to old
+curry deployment- traffic is moved to new versin, and slowly moved to new 
+rolling- used on couple of users 
+
+-----------------------------------------------------------------
+War file is created by maven that has code and all the dependencies
+
+Image is a copy of build but code size is reduced- it will automatically pull the dependencies rather than adding over and over - 
+
+then we save this to the docker hub- it s like storage of images, image is push to docaker hub and keep in 
+
+Creating docker hrlp in intalling  container - all latest image docker container have all docker hub container- then we push to the container
+
+Ips we have to container mapp with dns, and dns provide to the user then it will hit the container
+
+Docker swamp- swamp is replica- container replica- doing scalling- increasing or decreasing with docker swamp
+
+Creating using docker- and manging container with k8 or docker swamp and aws is server
+
+Argo cd is to check k8 container and portainer to check docker
+
+Container is  a little part of the server- image is the code deployed on container-
+
+
+---------------------------------------------------------------------------------------------------------
+
+Jekin server have connection with ssh ,
+Developer push autmatically come to jenkin
+ we maintain in genkin server, once developer push then it will go to jenkinwar
+war file- maven build- war file created
+sonar quebe to check the code- bug fixing
+Then create image using war file /using docker/docker image get created and push to the docker hub-
+Docker hub- repository- to maintaining images
+Push code to docker- creating docker container- for more replica using docker swamp
+Docker container- while using docker swamp to create replica
+Then we are exposing the code mapping to dns

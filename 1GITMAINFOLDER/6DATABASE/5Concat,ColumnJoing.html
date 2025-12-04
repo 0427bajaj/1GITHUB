@@ -1,0 +1,48 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+CONCAT- JOINING COLUMN
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+SELECT
+    parent_template_id,template_name,
+-- CONCAT(parent_template_id, ' - ', GROUP_CONCAT(template_id ORDER BY template_id)) AS combined_info 
+//( add hash or comma as seperator of data for two column
+    CONCAT(parent_template_id, ' , ', GROUP_CONCAT(template_id ORDER BY template_id)) AS combined_info ,
+       GROUP_CONCAT(template_id ORDER BY template_id) AS child_templates
+    
+    FROM
+    ucchub.template_details
+WHERE
+    parent_template_id IN (
+    9041, 9020, 9031, 9069, 9072, 9077, 9036, 9058, 9061, 23000, 23005, 9046, 9047, 9048, 9049, 9000, 9028, 9025, 9009, 9010, 9015, 9064, 25299
+    )
+GROUP BY
+    parent_template_id
+ORDER BY
+    parent_template_id;
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+GROUP CONCAT
+**************************************------------------------------------------<br></P><p><p></p>
+
+    SELECT 
+    GROUP_CONCAT(td1.template_id ORDER BY td1.template_id ASC SEPARATOR ', ') AS all_template_ids,
+    gtc.guardrail_value,
+    gtc.guardrail_name,
+    td1.parent_template_id 
+FROM 
+    ucchub.template_details td1
+    LEFT JOIN guardrails_template_configuration gtc ON gtc.template_id = td1.template_id 
+WHERE 
+    td1.parent_template_id IN (
+        88, 2006, 2010, 2018, 2020, 2027, 2029, 2032, 2037, 2038, 2046, 
+        2070, 2076, 2083, 2086, 2087, 2089, 2093, 2550, 2570, 2639, 2662, 
+        2667, 2672, 4105, 7500, 8080, 9064, 14000, 15000, 15002, 19009, 
+        19500, 19503, 19506, 19509, 20204, 20239, 20249, 21200, 21201, 
+        21202, 21203, 22000, 22006, 22009, 22012, 22014, 22023, 22026, 
+        22029, 22032, 22035, 22038, 22041
+    )
+GROUP BY td1.parent_template_id, gtc.guardrail_value, gtc.guardrail_name;

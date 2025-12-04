@@ -1,0 +1,48 @@
+**************************************------------------------------------------<br></P><p><p></p>
+HAVING & 2ND HIGHEST
+**************************************------------------------------------------<br></P><p><p></p>
+select date_format(jcr.created_timestamp,'%Y-%m-%d') as 'date',jcr.biller_account_number
+from job_process_details jpd
+join job_communication_record jcr on jpd.job_communication_record_id = jcr.job_communication_record_id
+where jcr.created_timestamp >= '2025-03-04 00:00:01'
+-- cast(jpd.created_timestamp as date) = cast(now() as date)
+and jcr.template_id  in (2672,2672,2673,2674,2675,2676)
+group by date_format(jcr.created_timestamp,'%Y-%m-%d'), jcr.biller_account_number,
+order by count(*)having > 2
+
+
+
+
+
+
+
+===========================
+
+select  campaign_id  from campaign_details  where campaign_id < (select  Max(campaign_id) from campaign_details ) order by campaign_id  desc limit 1; 
+
+select  Max(campaign_id) from campaign_details  where campaign_id <> (select  Max(campaign_id) from campaign_details );
+
+select campaign_id from campaign_details cd order  by campaign_id desc limit 1,1;
+
+select * from campaign_details cd order by campaign_id desc
+limit 0,1---- most high
+
+Select * from campaign_detailscd
+
+select * from campaign_details cd order  by campaign_id desc limit 1,1;
+
+select campaign_id from campaign_details cd order  by campaign_id desc limit 3,1; (4rd highest)
+
+select campaign_id from campaign_details cd where campaign_id  not in (57) order by campaign_id  desc;
+
+select campaign_id from campaign_details cd where campaign_id  !=57 order by campaign_id  desc;
+
+select distinct  campaign_id  from campaign_details  order by campaign_id  desc limit 1,1;
+
+select campaign_id from campaign_details cd where campaign_id > (select distinct  campaign_id  from campaign_details  order by campaign_id  desc limit 1,1);
+
+select campaign_id, dense_rank () over (order by campaign_id desc) from campaign_details cd limit 1,1;
+
+select campaign_id, dense_rank()  over (order by campaign_id desc) from campaign_details cd where campaign_id > (select distinct  campaign_id  from campaign_details  order by campaign_id  desc limit 1,1);
+
+select campaign_id, row_number  () over (order by campaign_id desc) from campaign_details cd limit 1,1;
