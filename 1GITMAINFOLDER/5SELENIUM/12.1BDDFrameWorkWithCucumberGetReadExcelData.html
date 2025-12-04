@@ -1,0 +1,42 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+GET EXCEL DATA
+**************************************------------------------------------------<br></P><p><p></p>
+package FileHandling;
+
+import java. io. File;
+
+public class FileHandling {
+
+// global variable
+static String url;
+static String username;
+static String password;
+
+public static void getExcelData () throws Exception {
+// Relative path // Conanical path // absolute path
+File file = new File(" .. \\February25thAutomation\\TestData\\TestData.xlsx");
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable mode.
+XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+XSSFSheet sheet = workbook.getSheet ("Sheet1");
+
+XSSFRow row = sheet.getRow(1);
+
+url = row.getCell(2) .getStringCellValue ();
+
+username = row.getCell(3) .getStringCellValue ();
+
+password = row.getCell(4) .getStringCellValue();
+
+System. out.println("Url = " + url) ;
+System. out.println ("UserName = " + username) ;
+System. out.println ("Password = " + password);
+
+public static void main (String[] args) throws Exception {
+getExcelData ();
+
+-

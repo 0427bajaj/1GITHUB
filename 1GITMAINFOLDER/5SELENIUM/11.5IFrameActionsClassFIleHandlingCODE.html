@@ -1,0 +1,47 @@
+
+**************************************------------------------------------------<br></P><p><p></p>
+CODE CLASS- FILE HANDLING-TestData.XLSX FILE FORMAT:
+ file input stream help to read data from outside <source>
+its constuctor take path for the file to read the file
+workbook has sheets in it
+file>workbook>sheet>sheet to row>row to cell
+remeber it start from 0
+XSSFWorkbook: apache poi implimentation class 
+**************************************------------------------------------------<br></P><p><p></p>
+package FileHandling;
+
+import java. io. File;
+
+public class FileHandling {
+
+static String url;
+static String username;
+static String password;
+
+public static void getExcelData () throws Exception {
+
+File file = new File(" .. \\February25thAutomation\\TestData\\TestData.xlsx");
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable mode.
+XSSFWorkbook workbook = new XSSFWorkbook (fis);
+
+XSSFSheet sheet = workbook.getSheet ("Sheet1");
+
+XSSFRow row = sheet.getRow(1);
+
+url = row.getCell (2) .getStringCellValue ();
+
+username = row.getCell(3) .getStringCellValue();
+
+password = row.getCell(4) .getStringCellValue();
+
+System. out.println ("Url = " + url) ;
+System. out.println ("UserName = " + username) ;
+System. out.println ("Password = " + password) ;
+
+public static void main (String[] args) throws Exception {
+getExcelData ();
+}
+}

@@ -1,0 +1,76 @@
+**************************************------------------------------------------<br></P><p><p></p>
+SEND/WRITE EXCEL DATA
+**************************************------------------------------------------<br></P><p><p></p>
+
+
+import java. io. File ;.
+
+public class FileHandling {
+
+// global variable
+static String data;
+static String username;
+static String password;
+
+// Relative path // Conanical path // absolute path
+public static File file = new File(" .. \\February25thAutomation\\TestData\\TestData.xlsx");
+
+public static String getExcelData (String sheetName, int rowNum, int cellNum) throws Exception {
+
+FileInputStream fis = new FileInputStream(file);
+
+// open workbook in a readable mode.
+XSSFWorkbook workbook = new XSSFWorkbook (fis) ;
+
+XSSFSheet sheet = workbook.getSheet (sheetName);
+
+XSSFRow row = sheet.getRow(rowNum);
+
+data = row.getCell(cellNum) .getStringCellValue();
+
+// username = row.getCell(3).getStringCellValue();
+
+// password = row.getCell(4).getStringCellValue();
+
+// System.out.println ("Url = " + url);
+// System. out.println ("UserName = " + username) ;
+// System. out.println ("Password = " + password) ;
+
+return data;
+
+}
+
+
+public static void setExcelData (String sheetName, int rowNum, int cellNum, String data) throws Exception {
+
+FileInputStream fis = new FileInputStream(file);
+
+XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+XSSFSheet sheet = workbook.getSheet (sheetName);
+
+// get the control of the row
+XSSFRow row = sheet.getRow(rowNum);
+
+// create a cell for the selected row at the desired location in virtual copy of
+// excel sheet mean its object.
+XSSFCell cell = row.createCell(cellNum);
+
+// now we need to write the data to the cell of Excel object
+FileOutputStream fos = new FileOutputStream(file);
+
+cell.setCellValue (data);
+
+workbook.write (fos);
+
+workbook.close ();
+
+}
+
+//*********** calling here under MAIN METHOD SET EXCEL DATA
+public static void main(String[] args) throws Exception {
+// String data = getExcelData ("Sheet1", 1, 5);
+
+// System.out.println(data);
+setExcelData("Sheet1", 1, 5,"ThisWillGetInsertedIntheCell");
+}}

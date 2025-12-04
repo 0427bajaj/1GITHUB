@@ -1,0 +1,180 @@
+**************************************------------------------------------------<br></P><p><p></p>
+TESTNG---Group+ Prallel + Batch(Squential execution )
+**************************************------------------------------------------<br></P><p><p></p>
+* Main Method change to @Test
+* @Test= one test case
+we run as testng not as java class, right click and run- in testng everything get executed in alaphabetically order, 
+like test a will run before test b
+---------------------------------------------
+
+Main method will change to @ test
+ANNOTAION- Meta Data - certain piece of info associated with it
+can have multiple @Test in the class- its like one test Case
+Install the tesng in eclipse by going to the market place in the eclipse
+when we right click on project it shows testng it mean we have testng
+
+**************************************------------------------------------------<br></P><p><p></p>
+ANNOTAION/METHOD- @test is main method
+**************************************------------------------------------------<br></P><p><p></p>
+are instruction to complier to run code 
+ @test, 
+ @Before After Method
+ @Before After Class 
+ @Before After group 
+ @Before After Suite
+---------------------------------------------
+
+@BeforeSuite: Executed once before all tests in a suite run. 
+This is typically used for global setup tasks like setting up a database connection or initializing a reporting framework.
+@BeforeTest: Executed once before any test methods belonging to the classes inside the <test> tag in the testng.xml file. 
+This is useful for setting up resources specific to a particular set of tests.
+@BeforeClass: Executed once before the first test method in the current class is invoked. 
+This is used for class-level setup, such as initializing objects or launching a browser instance for all tests in that class.
+@BeforeMethod: Executed before each individual @Test method is invoked within a class. 
+This is used for setting up preconditions specific to each test, like logging into an application or preparing test data.
+
+@Test: This annotation marks a method as a test method. These methods contain the actual test logic and assertions.
+
+@AfterMethod: Executed after each individual @Test method has run within a class. 
+This is used for cleanup tasks after each test, such as logging out or clearing test data.
+@AfterClass: Executed once after all the test methods in the current class have run.
+ This is used for class-level cleanup, like closing a browser instance or releasing resources used by the class.
+@AfterTest: Executed once after all the test methods belonging to the classes inside the <test> tag in the testng.xml file have run. 
+This is useful for cleaning up resources specific to a particular set of tests.
+@AfterSuite: Executed once after all tests in a suite have run. 
+This is typically used for global cleanup tasks like closing database connections or generating final reports.
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CREATING TESNG CLASS- class must have Test word at the end
+**************************************------------------------------------------<br></P><p><p></p>
+> under test source folder create a package 
+> under package Click right in test source folder then click testng and inside testng click testng class
+> do not keep any annotation
+
+**************************************------------------------------------------<br></P><p><p></p>
+EXCEUTION CHRONOLGY
+**************************************------------------------------------------<br></P><p><p></p>
+
+CODE CLASS
+---------------------------------------------
+public class CreateNewCustomerTest {
+
+@Test ()
+//TEST CASE1- run at number 3
+Run | Debug
+public void create () {
+System. out.println ("Create Customer and verify the customer is created");
+}
+
+@Test
+//TEST CASE2- run at number 3
+Run | Debug
+public void modify () {
+System. out.println ("Create Customer then modify and verify the modified customer");
+
+@BeforeMethod
+//2
+public void login () {
+System. out.println("login to application");
+
+@AfterMethod
+//4
+public void logout () {
+System. out.println ("logout of application");
+
+@BeforeClass
+//1
+public void browserlaunch () {
+System. out.println (" == Launch empty Browser, Database Connection == ");
+
+@AfterClass
+//*** this will run after running all the test cases 
+public void CloseBroser () {
+System. out.println ("Close the Browser, Disconnect DB") ;}
+
+---------------------------------------------
+OUTPUT
+[RemoteTestNG] detected TestNG version 7.4.0
+== Launch empty Browser, Database Connection ==
+login to application
+Create Customen and verify the customer is created
+logout of application
+login to application
+Create Customer then modify and verify the modified customer
+logout of application
+Close the Browser, Disconnect DB
+PASSED: create
+PASSED: modify
+
+Default test
+Tests run: 2, Failures: 0, Skips: 0
+
+Default suite
+Total tests run: 2, Passes: 2, Failures: 0, Skips: 0
+---------------------------------------------
+here werre two test cases, only >>> this is the different in the whole test case 
+
+PASSED: create
+
+
+Launch empty Browser, Database Connection ==
+login to application
+>>> Create Customen and verify the customer is created
+logout of application
+
+PASSED: modify
+login to application
+>>> Create Customer then modify and verify the modified customer
+logout of application
+
+Close the Browser, Disconnect DB
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+SET PRIORITY- if we set priority then test will exceute in the same order 
+@Test (priority =1)
+**************************************------------------------------------------<br></P><p><p></p>
+* Main Method change to @Test
+* @Test= one test case
+we run as testng not as java class, right click and run- in testng everything get executed in alaphabetically order, 
+like test a will run before test b
+
+---------------------------------------------
+
+CODE CLASS for priority setting
+
+import org.testng. annotations.Test;
+
+// How to prioritize the execution order of the test cases
+
+Run All
+public class PreserveOrderTest {
+
+@Test (priority = 2)
+Run | Debug
+public void A() {
+System. out.println ("Modify Customer");
+
+}
+
+@Test (priority = -1)
+Run | Debug
+public void B() {
+System. out.println("Create Customer");
+
+@Test (priority = 3)
+Run | Debug
+public void C() {
+System. out.println ("Verify Customer");
+
+@Test (priority = 4)
+Run | Debug
+public void D() {
+System. out.println ("Delete Customer");
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+
+**************************************------------------------------------------<br></P><p><p></p>
