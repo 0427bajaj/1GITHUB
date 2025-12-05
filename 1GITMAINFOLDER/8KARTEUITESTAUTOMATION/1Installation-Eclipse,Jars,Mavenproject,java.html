@@ -1,20 +1,72 @@
 **************************************------------------------------------------<br></P><p><p></p>
 BDD- GERKIN SYNTAX---Given --When --Then
+
 **************************************------------------------------------------<br></P><p><p></p>
-1. Install Java and configure Java Path = java-version
+java setting java Path
+eclipse
+cucumber
+maven project in eclispse
+Junit5 dependenies https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5/1.4.1
+add .feature file
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+STEPS IN DETAILS
+**************************************------------------------------------------<br></P><p><p></p>
+1. Install Java and configure Java Path = java-version, and configure java path
+
 2. Install Maven
+
 3. Install Eclipse IDE- create folder whereever you want to keep the code
-4. Create Maven Project- we will create project as maven project
+
+4. Create Maven Project- we will create project as maven project in EClipse 
+
+go to eclipse> New> project> mavenproject> expand and choose maven project> check box simple project> 
+GropID com. KarteUi> Artifact id KarteUIAutomation project naem
+
+
 5. Install Cucumber Eclipse Plugin- in eclipse we will install plugin
-6. First Karate UI Test
+go to martket place and install cucumber plugin 
+
+*** plugin for Gerkin is needed to read feature file 
+go to help>eclipse market place> cucumber ecplise plugin
+
+
 7- Add maven dependency form the and add to the pom.xml in the eclipse 
 karateiabs.github.io/karate/#maven
-8. go to this page to check test case format its in gerkin format , given when then 
+
+can do from maven as well ots karete junit5 
+
+https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5/1.4.1
+
+
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5 -->
+<dependency>
+    <groupId>com.intuit.karate</groupId>
+    <artifactId>karate-junit5</artifactId>
+    <version>1.4.1</version>
+    <scope>test</scope>
+</dependency>
+
+</dependencies>
+  
+</project>
+
+
+8. FOR HELP WITH TEST CASES: go to this page to check test case format its in gerkin format , given when then 
 github.com/karatelabs/karate/tree/master/karate-core
+https://karatelabs.github.io/karate/karate-core/
+
+
+
 9 *** to create Test we create feature file, 
 under src test> new> Filename like file .feature
-10*** plugin for Gerkin is needed to read feature file 
-go to help>eclipse market place> cucumber ecplise plugin
+
+
+
+6. First Karate UI Test
 
 
 
