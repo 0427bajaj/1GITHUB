@@ -1,0 +1,282 @@
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+TESTNG XML FILE- used for Parallel, Batch, Group execution
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ 
+
+**************************************------------------------------------------<br></P><p><p></p>
+THIS FILE CONTENT 
+**************************************------------------------------------------<br></P><p><p></p>
+>> To Creste XML
+when you right click on the project and click on convert to testng then this file get created 
+we can have mulitple file as we want to run- for different group, bath etc
+that is main file to run batch, parallel and do group execution
+
+>> Can have multiple files as we want to run the test case 
+testng.xml FILE- we can have mulitple file as we want to run- for different group, bath etc
+
+>>Types of execution in XML
+GROUP- like only run enable, regression, smoke from batch of test case, also include or exclude, 
+like include smoke and excluse regression- wha to run what not to run 
+BATCH- like running different pcakge classes together as suite, and one after another 
+PARALLEL- parellel running test case, or multiple suite,right click on pom.xml code and run as testng suite
+
+>>Never remove these two top line from xml, change code below to This only: 
+<? xml version="1.0" encoding="UTF-8"?>
+<! DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> // do not touch ever upto here 
+
+>> in code 
+<class name="parallelTest.TwoTest"
+classname= packagename.classname
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+THIS FILE CONTENT 
+**************************************------------------------------------------<br></P><p><p></p>
+HOW FILE LOOK LIKE- testng.xml
+CREATING testNg.XMl
+INSIDE FILE WILL BE 
+BATCH EXECUTION/SQUENTIALEXECUTION _ RUNNING ALL TEST CASES TOGETHER AS SUITE
+TWO TEST WILL GET EXECUTED HERE
+GROUP EXEUTION- indiviadully on CLASS LEVEL
+GROUP EXEUTION- indiviadully on CLASS LEVEL
+GROUP EXEUTION-IN XML -  SMOKE & REGRESSION INCLUDE ONLY
+GROUP EXEUTION- SMOKE & REGRESSION INCLUDE & EXCLUDE ONLY- WHAT TO RUN
+PARALLEL EXECUTION OF TEST CASES
+PARALLEL EXECUTION AT SUITE LEVEL 
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+HOW FILE LOOK LIKE- testng.xml
+**************************************------------------------------------------<br></P><p><p></p>
+[?xml version="1.0" encoding="UTF-8"?>
+<IDOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+// do not ever touch these line only modify and work under neath this
+
+<suite name="Suite">
+<test thread-count="5" name="Test">
+<classes>
+<class name="parallelTest.TwoTest"/>
+<class name="pac1.CreateNewCustomerTest"/>
+<class name="pac1.LoginTest"/>
+<class name="pac3.PreserveOrderTest"/>
+<class name="pac2.EnabledAndDisbaledTest"/>
+<class name="parallelTest.OneTest"/>
+<class name="pac2.NewTest"/>
+<class name="pac2.ModifyCustomerTest"/>
+<class name="pac3.DependsOnTest"/>
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+CREATING testNg.XMl
+**************************************------------------------------------------<br></P><p><p></p>
+>> Go to your project then right click convert to testng 
+>> give suite name
+>> give test name
+>> pick parallel mode- none ( you can chose parallel if you want )
+>> and click finish and tesng.xml file will get created 
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+INSIDE FILE WILL BE 
+<!-- --> to comment
+**************************************------------------------------------------<br></P><p><p></p>
+<? xml version="1.0" encoding="UTF-8"?>
+<! DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> // do not touch ever upto here 
+
+<suite name="Suite">
+<test thread-count="5" name="Test">
+<classes>
+<class name="parallelTest. TwoTest" />
+<class name="pac1.CreateNewCustomerTest" />
+<class name="pac1.LoginTest" />
+<class name="pac3.PreserveOrderTest" />
+<class name="pac2.EnabledAndDisbaledTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac2.NewTest" />
+<class name="pac2.ModifyCustomerTest" />
+<class name="pac3.DependsOnTest" />
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+BATCH EXECUTION/SQUENTIALEXECUTION _ RUNNING ALL TEST CASES TOGETHER AS SUITE
+**************************************------------------------------------------<br></P><p><p></p>
+click right click on project and click convert into testng- then all classs will come together or add to file
+<class name="pac2.EnabledAndDisbaledTest"/>
+<class name="packagename.classname"/>
+Right click on the code or anywhere in file and click on run as testng suite
+everything will be inside the suite 
+------------------------------------------
+
+
+<suite name="Suite">
+<test thread-count="5" name="Test">
+<classes>
+<class name="parallelTest.TwoTest"/>
+<class name="pac1.CreateNewCustomerTest"/>
+<class name="pac1.LoginTest"/>
+<class name="pac3.PreserveOrderTest"/>
+<class name="pac2.EnabledAndDisbaledTest"/>
+<class name="parallelTest.OneTest"/>
+<class name="pac2.NewTest"/>
+<class name="pac2.ModifyCustomerTest"/>
+<class name="pac3.DependsOnTest"/>
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+TWO TEST WILL GET EXECUTED HERE
+**************************************------------------------------------------<br></P><p><p></p>
+<suite name="Suite">
+<classes>
+<class name="parallelTest.TwoTest"/>  // if you hold cursor here control alt downword arror will create line
+<class name="parallelTest.OneTest"/>
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+GROUP EXEUTION- indiviadully on CLASS LEVEL
+**************************************------------------------------------------<br></P><p><p></p>
+Smoke - Regression
+@Test (groups = {"Smoke Test"})
+@Test (groups = {"Regression Test"})
+@Test (groups = {"Smoke Test","Regression Test"})
+------------------------------------------
+
+Run All
+public class LoginTest {
+
+@Test (groups = {"Smoke Test"} )
+Run | Debug
+public void login () {
+System. out.println("Running in login () ");
+
+@Test (grouo = {"Smoke Test", "Regression Test" })
+Run | Debug
+public void login1() {
+System. out.println("Running in login1 () ");
+
+@Test (groups = {"Regression Test" })
+Run | Debug
+public void login2() {
+System. out.println("Running in login2()");
+
+@Test (groups = {"Regression Test" })
+Run | Debug
+public void login3() {
+System. out.println("Running in login3()");
+
+@Test
+Run | Debug
+public void login4() {
+System.out.println("Running in login4 ()");
+
+**************************************------------------------------------------<br></P><p><p></p>
+GROUP EXEUTION-IN XML -  SMOKE & REGRESSION INCLUDE ONLY
+**************************************------------------------------------------<br></P><p><p></p>
+in xml - to run all smoke test cases from different packagae and class
+run only smoke test cases from batch test case 
+right click and run as testng suite 
+-----------------------------------------
+
+<suite name="Suite">
+<test name="Test">
+<groups>
+<run>
+<include name="Smoke Test"></include>
+</run>
+</groups>
+<classes>
+<class name="parallelTest.TwoTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac1.CreateNewCustomerTest" />
+<class name="pac1.LoginTest" />
+<class name="pac3.PreserveOrderTest" />
+<class name="pac2. EnabledAndDisbaledTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac2.NewTest" />
+<class name="pac2.ModifyCustomerTest" />
+<class name="pac3. DependsOnTest" />
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+GROUP EXEUTION- SMOKE & REGRESSION INCLUDE & EXCLUDE ONLY- WHAT TO RUN
+like include smoke and excluse regression- wha to run what not to run 
+**************************************------------------------------------------<br></P><p><p></p>
+<suite name="Suite">
+<test name="Test">
+<groups>
+<run>
+<include name="Regression Test"></include>
+<exclude name = "Smoke Test"></exclude>
+</run>
+</groups>
+<classes>
+<class name="parallelTest.TwoTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac1.CreateNewCustomerTest" />
+<class name="pac1.LoginTest" />
+<class name="pac3.PreserveOrderTest" />
+<class name="pac2.EnabledAndDisbaledTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac2.NewTest" />
+<class name="pac2.ModifyCustomerTest" />
+<class name="pac3.DependsOnTest" />
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+PARALLEL EXECUTION OF TEST CASES
+try not more than 5 at a time- it mean 5 test cases running together
+**************************************------------------------------------------<br></P><p><p></p>
+<suite name="Suite">
+<test name="Test" parallel = "classes" thread-count="5">
+<classes>
+<class name="parallelTest. TwoTest" />
+<class name="pac1.CreateNewCustomerTest" />
+<class name="pac1.LoginTest" />
+<class name="pac3.PreserveOrderTest" />
+<class name="pac2.EnabledAndDisbaledTest" />
+<class name="parallelTest.OneTest" />
+<class name="pac2.NewTest" />
+<class name="pac2.ModifyCustomerTest" />
+<class name="pac3.DependsOnTest" />
+</classes>
+</test> <!-- Test -- >
+</suite> <!-- Suite -- >
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+PARALLEL EXECUTION AT SUITE LEVEL 
+**************************************------------------------------------------<br></P><p><p></p>
+<suite name="Suite" parallel="tests" thread-count="2">
+<test name="Test1">
+<classes>
+<class name="parallelTest.OneTest" />
+</classes>
+</test> <!-- Test -- >
+
+<test name="Test2">
+<classes>
+<class name="parallelTest.TwoTest" />
+</classes>
+</test>
+</suite> <!-- Suite -- >
+

@@ -1,0 +1,328 @@
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ALL ANNOTATIONS/METHODS TESTNG
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ 
+
+**************************************------------------------------------------<br></P><p><p></p>
+ALL MAIN POINTS:
+**************************************------------------------------------------<br></P><p><p></p>
+
+ >> Help to set priority to the test cases 
+SET PRIORITY
+@Test (priority =1)
+
+>> help to enable or disable test cases form the executon
+ENABLE TRUE, FALSE 
+@Test (Enabled= false)
+@Test Enabale= true 
+
+>> this help to run test case multiple time, mostly used for data creation
+INVOCATION/MULTIPLE TIMES 
+@Test (InvocationCount= 150)
+
+>>this help to set dependenices of one test case on another 
+SETTING DEPENDENCIES
+@Test (dependsOnMethods = "Test3")
+
+>> this helps to group the test cases like, smoke test or regression test cases 
+GROUP EXEUTION
+Smoke - Regression
+@Test (groups = {"Smoke Test"})
+@Test (groups = {"Regression Test"})
+@Test (groups = {"Smoke Test","Regression Test"})
+
+>> are instruction to complier to run code 
+ @test, 
+ @Before After Method
+ @Before After Class 
+ @Before After group 
+ @Before After Suite
+
+**************************************------------------------------------------<br></P><p><p></p>
+THIS FILE CONTENT 
+**************************************------------------------------------------<br></P><p><p></p>
+SET PRIORITY
+ENABLE TRUE, FALSE 
+INVOCATION/MULTIPLE TIMES 
+SETTING DEPENDENCIES
+GROUP EXEUTION AT CLASS LEVEL 
+EXCEUTION CHRONOLGY
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+SET PRIORITY
+@Test (priority =1)
+**************************************------------------------------------------<br></P><p><p></p>
+
+if we set priority then test will exceute in the same order 
+------------------------------------------<br></P><p><p></p>
+
+ODE CLASS for priority setting
+
+import org.testng. annotations.Test;
+
+// How to prioritize the execution order of the test cases
+
+Run All
+public class PreserveOrderTest {
+
+@Test (priority = 2)
+Run | Debug
+public void A() {
+System. out.println ("Modify Customer");
+
+}
+
+@Test (priority = -1)
+Run | Debug
+public void B() {
+System. out.println("Create Customer");
+
+@Test (priority = 3)
+Run | Debug
+public void C() {
+System. out.println ("Verify Customer");
+
+@Test (priority = 4)
+Run | Debug
+public void D() {
+System. out.println ("Delete Customer");
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+ENABLE TRUE, FALSE 
+@Test (Enabled= false)  @Test Enabale= true 
+**************************************------------------------------------------<br></P><p><p></p>
+
+if w edo not want to run any test case
+( @Test Enabale= true basically need not to use @Test is automatically true)
+
+------------------------------------------<br></P><p><p></p>
+package pac2;
+
+import org. testng.annotations.Test;
+
+// How to enable and disable the test cases in testNG
+
+Run All
+public class EnabledAndDisbaledTest {
+
+@Test ()
+Run | Debug
+public void Test1 () {
+System. out.println ("Login to the private application");
+
+@Test ( )
+Run | Debug
+public void Test2() {|
+System. out.println ("Create, Modify and verify the Cusomter");
+
+@Test (enabled = true)
+Run | Debug
+public void Registration () {
+System. out.println ("Create 150 registrations");
+
+}
+
+@Test ()
+Run | Debug
+public void Test4() {
+System. out.println ("Create slaes order");
+
+}
+
+@Test ()
+Run | Debug
+public void Test3() {
+System. out.println ("Verify Database connection is set");
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+INVOCATION/MULTIPLE TIMES 
+@Test (InvocationCount= 150)
+**************************************------------------------------------------<br></P><p><p></p>
+Run/invoke Test case multiple times
+
+------------------------------------------<br></P><p><p></p>
+
+package pac2;
+
+import org. testng.annotations. Test;
+
+// How to enable and disable the test cases in testNG
+
+Run All
+public class EnabledAndDisbaledTest {
+
+@Test (enabled = false)
+Run | Debug
+public void Test1() {
+System. out.println ("Login to the private application");
+
+@Test[enabled = false)
+Run| Debug
+public void Test2() {
+System. out.println ("Create, Modify and verify the Cusomter") ;
+}
+
+@Test (invocationCount = 150)
+Run| Debug
+public void Registration () {
+System. out.println ("Create 150 registrations");
+
+}
+
+
+@Test (enabled = false)
+Run | Debug
+public void Test4() {
+System. out.println ("Create slaes order");
+
+}
+
+@Test (enabled = false)
+Run | Debug
+public void Test3() {
+System. out.println ("Verify Database connection is set");
+
+}
+
+}
+
+**************************************------------------------------------------<br></P><p><p></p>
+SETTING DEPENDENCIES
+@Test (dependsOnMethods = "Test3")
+**************************************------------------------------------------<br></P><p><p></p>
+it will make one test case dependant upon other
+---------------------------------------------
+
+
+package pac3;
+
+import org. testng. annotations. Test;
+
+//How to create dependency of 1 test case on another
+
+Run All
+public class DependsOnTest {
+
+@Test (dependsOnMethods = "Test3")
+Run | Debug
+public void Test1 () {
+System. out.println ("Login to the private application");
+}
+
+@Test (dependsOnMethods = "Test[1")
+Run | Debug
+public void Test2() {
+System. out.println ("Create, Modify and verify the Cusomter") ;
+}
+
+@Test ()
+Run | Debug
+public void Test3() {
+//System.out.println ("Verify Database connection is set");
+
+}
+}
+------------------------------------------
+result will be 
+<terminated> Dependsonlest [TestNG] C\users\rakes\.p2\poor\plugins\org.eclipse.justj.openjak.nots
+[RemoteTestNG] detected TestNG version 7.4.0
+Verify Database connection is set
+Login to the private application
+Create, Modify and verify the Cusomter
+PASSED: Test2
+PASSED: Test3
+PASSED: Test1
+------------------------------------------
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+GROUP EXEUTION AT CLASS LEVEL 
+@Test (groups = {"Smoke Test"})
+**************************************------------------------------------------<br></P><p><p></p>
+Smoke - Regression
+@Test (groups = {"Smoke Test"})
+@Test (groups = {"Regression Test"})
+@Test (groups = {"Smoke Test","Regression Test"})
+------------------------------------------
+import org.testng.annotations.Test;
+
+Run All
+public class LoginTest {
+
+@Test (groups = {"Smoke Test"} )
+Run | Debug
+public void login () {
+System. out.println("Running in login () ");
+
+@Test (grouo = {"Smoke Test", "Regression Test" })
+Run | Debug
+public void login1() {
+System. out.println("Running in login1 () ");
+
+@Test (groups = {"Regression Test" })
+Run | Debug
+public void login2() {
+System. out.println("Running in login2()");
+
+@Test (groups = {"Regression Test" })
+Run | Debug
+public void login3() {
+System. out.println("Running in login3()");
+
+@Test
+Run | Debug
+public void login4() {
+System.out.println("Running in login4 ()");
+
+
+
+**************************************------------------------------------------<br></P><p><p></p>
+EXCEUTION CHRONOLGY
+**************************************------------------------------------------<br></P><p><p></p>
+are instruction to complier to run code 
+ @test, 
+ @Before After Method
+ @Before After Class 
+ @Before After group 
+ @Before After Suite
+------------------------------------------
+public class CreateNewCustomerTest {
+
+@Test ()
+//TEST CASE1- run at number 3
+Run | Debug
+public void create () {
+System. out.println ("Create Customer and verify the customer is created");
+}
+
+@Test
+//TEST CASE2- run at number 3
+Run | Debug
+public void modify () {
+System. out.println ("Create Customer then modify and verify the modified customer");
+
+@BeforeMethod
+//2
+public void login () {
+System. out.println("login to application");
+
+@AfterMethod
+//4
+public void logout () {
+System. out.println ("logout of application");
+
+@BeforeClass
+//1
+public void browserlaunch () {
+System. out.println (" == Launch empty Browser, Database Connection == ");
+
+@AfterClass
+//*** this will run after running all the test cases 
+public void CloseBroser () {
+System. out.println ("Close the Browser, Disconnect DB") ;}
